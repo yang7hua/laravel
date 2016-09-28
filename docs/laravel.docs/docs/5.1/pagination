@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pagination - Laravel 5.1 中文文档 | Laravel 中文网</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Laravel 中文网">
+    <meta name="description" content="Laravel - 为 WEB 艺术家创造的 PHP 框架。| Laravel 中文网">
+    <meta name="keywords" content="Laravel中文社区,php框架,laravel中文网,php framework,restful routing,laravel,laravel php">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 9]>
+		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../assets/css/laravel.css">
+    <link rel="stylesheet" href="../../assets/css/patch.css">
+</head>
+
+<body class="docs language-php">
+
+    <span class="overlay"></span>
+
+    <nav class="main">
+        <div class="container">
+            <a href="http://www.golaravel.com/laravel/" class="brand">
+                <img src="../../assets/img/laravel-logo.png" height="30"> Laravel
+            </a>
+
+            <div class="responsive-sidebar-nav">
+                <a href="pagination#" class="toggle-slide menu-link btn">&#9776;</a>
+            </div>
+
+            <div class="switcher">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        <!--<span class="faint">v</span> -->
+                        5.1
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="index.html">5.1</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/5.0">5.0</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.2">4.2</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.1">4.1</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.0">4.0</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <ul class="main-nav">
+                <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+                </li>
+                <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+                </li>
+                <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+                </li>
+                <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+                </li>
+                <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <nav id="slide-menu" class="slide-menu" role="navigation">
+
+        <div class="brand">
+            <a href="http://www.golaravel.com/laravel/">
+                <img src="../../assets/img/laravel-logo-white.png" height="50">
+            </a>
+        </div>
+
+        <ul class="slide-main-nav">
+            <li><a href="http://www.golaravel.com/laravel/">首页</a>
+            </li>
+            <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+            </li>
+            <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+            </li>
+            <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+            </li>
+            <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+            </li>
+            <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+            </li>
+
+        </ul>
+
+        <div class="slide-docs-nav">
+            <h2>文档目录</h2>
+            <ul>
+                <li>序言
+                    <ul>
+                        <li><a href="releases">版本说明</a>
+                        </li>
+                        <li><a href="upgrade">升级指南</a>
+                        </li>
+                        <li><a href="contributions">贡献指南</a>
+                        </li>
+                        <li><a href="http://www.golaravel.com/laravel/api/5.1">API 文档</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>安装设置
+                    <ul>
+                        <li><a href="installation">安装</a>
+                        </li>
+                        <li><a href="homestead">Homestead</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>教程
+                    <ul>
+                        <li><a href="quickstart">入门学习任务</a>
+                        </li>
+                        <li><a href="quickstart-intermediate">中级学习任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>基础知识
+                    <ul>
+                        <li><a href="routing">路由</a>
+                        </li>
+                        <li><a href="middleware">中间件</a>
+                        </li>
+                        <li><a href="controllers">控制器</a>
+                        </li>
+                        <li><a href="requests">请求</a>
+                        </li>
+                        <li><a href="responses">响应</a>
+                        </li>
+                        <li><a href="views">视图</a>
+                        </li>
+                        <li><a href="blade">Blade 模板</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统架构
+                    <ul>
+                        <li><a href="lifecycle">请求的生命周期</a>
+                        </li>
+                        <li><a href="structure">应用程序结构</a>
+                        </li>
+                        <li><a href="providers">服务提供者</a>
+                        </li>
+                        <li><a href="container">服务容器</a>
+                        </li>
+                        <li><a href="contracts">Contract</a>
+                        </li>
+                        <li><a href="facades">Facade</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统服务
+                    <ul>
+                        <li><a href="authentication">认证</a>
+                        </li>
+                        <li><a href="authorization">授权</a>
+                        </li>
+                        <li><a href="artisan">Artisan 控制台</a>
+                        </li>
+                        <li><a href="billing">计费</a>
+                        </li>
+                        <li><a href="cache">缓存</a>
+                        </li>
+                        <li><a href="collections">集合</a>
+                        </li>
+                        <li><a href="elixir">Elixir</a>
+                        </li>
+                        <li><a href="encryption">加密</a>
+                        </li>
+                        <li><a href="errors">错误与日志</a>
+                        </li>
+                        <li><a href="events">事件</a>
+                        </li>
+                        <li><a href="filesystem">文件系统 / 云存储</a>
+                        </li>
+                        <li><a href="hashing">哈希</a>
+                        </li>
+                        <li><a href="helpers">辅助方法</a>
+                        </li>
+                        <li><a href="localization">本地化</a>
+                        </li>
+                        <li><a href="mail">邮件</a>
+                        </li>
+                        <li><a href="packages">扩展包开发</a>
+                        </li>
+                        <li><a href="pagination">分页</a>
+                        </li>
+                        <li><a href="queues">队列</a>
+                        </li>
+                        <li><a href="redis">Redis</a>
+                        </li>
+                        <li><a href="session">会话</a>
+                        </li>
+                        <li><a href="envoy">SSH 任务</a>
+                        </li>
+                        <li><a href="scheduling">任务调度</a>
+                        </li>
+                        <li><a href="testing">测试</a>
+                        </li>
+                        <li><a href="validation">验证</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>数据库
+                    <ul>
+                        <li><a href="database">入门</a>
+                        </li>
+                        <li><a href="queries">查询构造器</a>
+                        </li>
+                        <li><a href="migrations">迁移</a>
+                        </li>
+                        <li><a href="seeding">数据填充</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Eloquent ORM
+                    <ul>
+                        <li><a href="eloquent">入门</a>
+                        </li>
+                        <li><a href="eloquent-relationships">关系</a>
+                        </li>
+                        <li><a href="eloquent-collections">集合</a>
+                        </li>
+                        <li><a href="eloquent-mutators">调整修改</a>
+                        </li>
+                        <li><a href="eloquent-serialization">序列化</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class="docs-wrapper container">
+
+        <section class="sidebar">
+            <ul>
+                <li>序言
+                    <ul>
+                        <li><a href="releases">版本说明</a>
+                        </li>
+                        <li><a href="upgrade">升级指南</a>
+                        </li>
+                        <li><a href="contributions">贡献指南</a>
+                        </li>
+                        <li><a href="http://www.golaravel.com/laravel/api/5.1">API 文档</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>安装设置
+                    <ul>
+                        <li><a href="installation">安装</a>
+                        </li>
+                        <li><a href="homestead">Homestead</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>教程
+                    <ul>
+                        <li><a href="quickstart">入门学习任务</a>
+                        </li>
+                        <li><a href="quickstart-intermediate">中级学习任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>基础知识
+                    <ul>
+                        <li><a href="routing">路由</a>
+                        </li>
+                        <li><a href="middleware">中间件</a>
+                        </li>
+                        <li><a href="controllers">控制器</a>
+                        </li>
+                        <li><a href="requests">请求</a>
+                        </li>
+                        <li><a href="responses">响应</a>
+                        </li>
+                        <li><a href="views">视图</a>
+                        </li>
+                        <li><a href="blade">Blade 模板</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统架构
+                    <ul>
+                        <li><a href="lifecycle">请求的生命周期</a>
+                        </li>
+                        <li><a href="structure">应用程序结构</a>
+                        </li>
+                        <li><a href="providers">服务提供者</a>
+                        </li>
+                        <li><a href="container">服务容器</a>
+                        </li>
+                        <li><a href="contracts">Contract</a>
+                        </li>
+                        <li><a href="facades">Facade</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统服务
+                    <ul>
+                        <li><a href="authentication">认证</a>
+                        </li>
+                        <li><a href="authorization">授权</a>
+                        </li>
+                        <li><a href="artisan">Artisan 控制台</a>
+                        </li>
+                        <li><a href="billing">计费</a>
+                        </li>
+                        <li><a href="cache">缓存</a>
+                        </li>
+                        <li><a href="collections">集合</a>
+                        </li>
+                        <li><a href="elixir">Elixir</a>
+                        </li>
+                        <li><a href="encryption">加密</a>
+                        </li>
+                        <li><a href="errors">错误与日志</a>
+                        </li>
+                        <li><a href="events">事件</a>
+                        </li>
+                        <li><a href="filesystem">文件系统 / 云存储</a>
+                        </li>
+                        <li><a href="hashing">哈希</a>
+                        </li>
+                        <li><a href="helpers">辅助方法</a>
+                        </li>
+                        <li><a href="localization">本地化</a>
+                        </li>
+                        <li><a href="mail">邮件</a>
+                        </li>
+                        <li><a href="packages">扩展包开发</a>
+                        </li>
+                        <li><a href="pagination">分页</a>
+                        </li>
+                        <li><a href="queues">队列</a>
+                        </li>
+                        <li><a href="redis">Redis</a>
+                        </li>
+                        <li><a href="session">会话</a>
+                        </li>
+                        <li><a href="envoy">SSH 任务</a>
+                        </li>
+                        <li><a href="scheduling">任务调度</a>
+                        </li>
+                        <li><a href="testing">测试</a>
+                        </li>
+                        <li><a href="validation">验证</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>数据库
+                    <ul>
+                        <li><a href="database">入门</a>
+                        </li>
+                        <li><a href="queries">查询构造器</a>
+                        </li>
+                        <li><a href="migrations">迁移</a>
+                        </li>
+                        <li><a href="seeding">数据填充</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Eloquent ORM
+                    <ul>
+                        <li><a href="eloquent">入门</a>
+                        </li>
+                        <li><a href="eloquent-relationships">关系</a>
+                        </li>
+                        <li><a href="eloquent-collections">集合</a>
+                        </li>
+                        <li><a href="eloquent-mutators">调整修改</a>
+                        </li>
+                        <li><a href="eloquent-serialization">序列化</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </section>
+
+        <article>
+            <h1>Pagination</h1>
+            <ul>
+                <li><a href="pagination#introduction">Introduction</a>
+                </li>
+                <li><a href="pagination#basic-usage">Basic Usage</a>
+                    <ul>
+                        <li><a href="pagination#paginating-query-builder-results">Paginating Query Builder Results</a>
+                        </li>
+                        <li><a href="pagination#paginating-eloquent-results">Paginating Eloquent Results</a>
+                        </li>
+                        <li><a href="pagination#manually-creating-a-paginator">Manually Creating A Paginator</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="pagination#displaying-results-in-a-view">Displaying Results In A View</a>
+                </li>
+                <li><a href="pagination#converting-results-to-json">Converting Results To JSON</a>
+                </li>
+            </ul>
+            <p>
+                <a name="introduction"></a>
+            </p>
+            <h2>Introduction</h2>
+            <p>In other frameworks, pagination can be very painful. Laravel makes it a breeze. Laravel can quickly generate an intelligent &quot;range&quot; of links based on the current page, and the generated HTML is compatible with the <a href="http://getbootstrap.com/" target="_blank">Bootstrap CSS framework</a>.</p>
+            <p>
+                <a name="basic-usage"></a>
+            </p>
+            <h2>Basic Usage</h2>
+            <p>
+                <a name="paginating-query-builder-results"></a>
+            </p>
+            <h3>Paginating Query Builder Results</h3>
+            <p>There are several ways to paginate items. The simplest is by using the <code>paginate</code> method on the <a href="queries">query builder</a> or an <a href="eloquent">Eloquent query</a>. The <code>paginate</code> method
+                provided by Laravel automatically takes care of setting the proper limit and offset based on the current page being viewed by the user. By default, the current page is detected by the value of the <code>?page</code> query string argument
+                on the HTTP request. Of course, this value is automatically detected by Laravel, and is also automatically inserted into links generated by the paginator.</p>
+            <p>First, let's take a look at calling the <code>paginate</code> method on a query. In this example, the only argument passed to <code>paginate</code> is the number of items you would like displayed &quot;per page&quot;. In this case, let's specify
+                that we would like to display <code>15</code> items per page:</p>
+            <pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use DB;
+use App\Http\Controllers\Controller;
+
+class UserController extends Controller
+{
+    /**
+     * Show all of the users for the application.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $users = DB::table('users')-&gt;paginate(15);
+
+        return view('user.index', ['users' =&gt; $users]);
+    }
+}
+</code></pre>
+            <blockquote>
+                <p><strong>Note:</strong> Currently, pagination operations that use a <code>groupBy</code> statement cannot be executed efficiently by Laravel. If you need to use a <code>groupBy</code> with a paginated result set, it is recommended that
+                    you query the database and create a paginator manually.</p>
+            </blockquote>
+            <h4>&quot;Simple Pagination&quot;</h4>
+            <p>If you only need to display simple &quot;Next&quot; and &quot;Previous&quot; links in your pagination view, you have the option of using the <code>simplePaginate</code> method to perform a more efficient query. This is very useful for large
+                datasets if you do not need to display a link for each page number when rendering your view:</p>
+            <pre><code>$users = DB::table('users')-&gt;simplePaginate(15);
+</code></pre>
+            <p>
+                <a name="paginating-eloquent-results"></a>
+            </p>
+            <h3>Paginating Eloquent Results</h3>
+            <p>You may also paginate <a href="eloquent">Eloquent</a> queries. In this example, we will paginate the <code>User</code> model with <code>15</code> items per page. As you can see, the syntax is nearly identical to paginating query
+                builder results:</p>
+            <pre><code>$users = App\User::paginate(15);
+</code></pre>
+            <p>Of course, you may call <code>paginate</code> after setting other constraints on the query, such as <code>where</code> clauses:</p>
+            <pre><code>$users = User::where('votes', '&gt;', 100)-&gt;paginate(15);
+</code></pre>
+            <p>You may also use the <code>simplePaginate</code> method when paginating Eloquent models:</p>
+            <pre><code>$users = User::where('votes', '&gt;', 100)-&gt;simplePaginate(15);
+</code></pre>
+            <p>
+                <a name="manually-creating-a-paginator"></a>
+            </p>
+            <h3>Manually Creating A Paginator</h3>
+            <p>Sometimes you may wish to create a pagination instance manually, passing it an array of items. You may do so by creating either an <code>Illuminate\Pagination\Paginator</code> or <code>Illuminate\Pagination\LengthAwarePaginator</code> instance,
+                depending on your needs.</p>
+            <p>The <code>Paginator</code> class does not need to know the total number of items in the result set; however, because of this, the class does not have methods for retrieving the index of the last page. The <code>LengthAwarePaginator</code>                accepts almost the same arguments as the <code>Paginator</code>; however, it does require a count of the total number of items in the result set.</p>
+            <p>In other words, the <code>Paginator</code> corresponds to the <code>simplePaginate</code> method on the query builder and Eloquent, while the <code>LengthAwarePaginator</code> corresponds to the <code>paginate</code> method.</p>
+            <p>When manually creating a paginator instance, you should manually &quot;slice&quot; the array of results you pass to the paginator. If you're unsure how to do this, check out the <a href="http://php.net/manual/en/function.array-slice.php" target="_blank">array_slice</a>                PHP function.</p>
+            <p>
+                <a name="displaying-results-in-a-view"></a>
+            </p>
+            <h2>Displaying Results In A View</h2>
+            <p>When you call the <code>paginate</code> or <code>simplePaginate</code> methods on a query builder or Eloquent query, you will receive a paginator instance. When calling the <code>paginate</code> method, you will receive an instance of <code>Illuminate\Pagination\LengthAwarePaginator</code>.
+                When calling the <code>simplePaginate</code> method, you will receive an instance of <code>Illuminate\Pagination\Paginator</code>. These objects provide several methods that describe the result set. In addition to these helpers methods,
+                the paginator instances are iterators and may be looped as an array.</p>
+            <p>So, once you have retrieved the results, you may display the results and render the page links using <a href="blade">Blade</a>:</p>
+            <pre><code>&lt;div class=&quot;container&quot;&gt;
+    @foreach ($users as $user)
+        {{ $user-&gt;name }}
+    @endforeach
+&lt;/div&gt;
+
+{!! $users-&gt;render() !!}
+</code></pre>
+            <p>The <code>render</code> method will render the links to the rest of the pages in the result set. Each of these links will already contain the proper <code>?page</code> query string variable. Remember, the HTML generated by the <code>render</code>                method is compatible with the <a href="https://getbootstrap.com" target="_blank">Bootstrap CSS framework</a>.</p>
+            <blockquote>
+                <p><strong>Note:</strong> When calling the <code>render</code> method from a Blade template, be sure to use the <code>{!! !!}</code> syntax so the HTML links are not escaped.</p>
+            </blockquote>
+            <h4>Customizing The Paginator URI</h4>
+            <p>The <code>setPath</code> method allows you to customize the URI used by the paginator when generating links. For example, if you want the paginator to generate links like <code>http://example.com/custom/url?page=N</code>, you should pass <code>custom/url</code>                to the <code>setPath</code> method:</p>
+            <pre><code>Route::get('users', function () {
+    $users = App\User::paginate(15);
+
+    $users-&gt;setPath('custom/url');
+
+    //
+});
+</code></pre>
+            <h4>Appending To Pagination Links</h4>
+            <p>You may add to the query string of pagination links using the <code>appends</code> method. For example, to append <code>&amp;sort=votes</code> to each pagination link, you should make the following call to <code>appends</code>:</p>
+            <pre><code>{!! $users-&gt;appends(['sort' =&gt; 'votes'])-&gt;render() !!}
+</code></pre>
+            <p>If you wish to append a &quot;hash fragment&quot; to the paginator's URLs, you may use the <code>fragment</code> method. For example, to append <code>#foo</code> to the end of each pagination link, make the following call to the <code>fragment</code>                method:</p>
+            <pre><code>{!! $users-&gt;fragment('foo')-&gt;render() !!}
+</code></pre>
+            <h4>Additional Helper Methods</h4>
+            <p>You may also access additional pagination information via the following methods on paginator instances:</p>
+            <ul>
+                <li><code>$results-&gt;count()</code>
+                </li>
+                <li><code>$results-&gt;currentPage()</code>
+                </li>
+                <li><code>$results-&gt;hasMorePages()</code>
+                </li>
+                <li><code>$results-&gt;lastPage() (Not available when using simplePaginate)</code>
+                </li>
+                <li><code>$results-&gt;nextPageUrl()</code>
+                </li>
+                <li><code>$results-&gt;perPage()</code>
+                </li>
+                <li><code>$results-&gt;previousPageUrl()</code>
+                </li>
+                <li><code>$results-&gt;total() (Not available when using simplePaginate)</code>
+                </li>
+                <li><code>$results-&gt;url($page)</code>
+                </li>
+            </ul>
+            <p>
+                <a name="converting-results-to-json"></a>
+            </p>
+            <h2>Converting Results To JSON</h2>
+            <p>The Laravel paginator result classes implement the <code>Illuminate\Contracts\Support\JsonableInterface</code> contract and expose the <code>toJson</code> method, so it's very easy to convert your pagination results to JSON.</p>
+            <p>You may also convert a paginator instance to JSON by simply returning it from a route or controller action:</p>
+            <pre><code>Route::get('users', function () {
+    return App\User::paginate();
+});
+</code></pre>
+            <p>The JSON from the paginator will include meta information such as <code>total</code>, <code>current_page</code>, <code>last_page</code>, and more. The actual result objects will be available via the <code>data</code> key in the JSON array.
+                Here is an example of the JSON created by returning a paginator instance from a route:</p>
+            <h4>Example Paginator JSON</h4>
+            <pre><code>{
+   &quot;total&quot;: 50,
+   &quot;per_page&quot;: 15,
+   &quot;current_page&quot;: 1,
+   &quot;last_page&quot;: 4,
+   &quot;next_page_url&quot;: &quot;http://laravel.app?page=2&quot;,
+   &quot;prev_page_url&quot;: null,
+   &quot;from&quot;: 1,
+   &quot;to&quot;: 15,
+   &quot;data&quot;:[
+        {
+            // Result Object
+        },
+        {
+            // Result Object
+        }
+   ]
+}
+</code></pre>
+
+        </article>
+    </div>
+
+
+    <footer class="main">
+        <ul>
+            <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+            </li>
+            <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+            </li>
+            <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+            </li>
+            <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+            </li>
+            <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+            </li>
+
+        </ul>
+        <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
+        <p class="less-significant"><a href="http://jackmcdade.com" target="_blank">Design by Jack McDade</a>
+        </p>
+    </footer>
+
+    <script src="../../assets/js/laravel.js"></script>
+    <script src="../../assets/js/viewport-units-buggyfill.js"></script>
+    <script>
+        window.viewportUnitsBuggyfill.init();
+    </script>
+    <script type="text/javascript">
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc8d13872a523d9c286aa7affbe0921f1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</body>
+
+</html>

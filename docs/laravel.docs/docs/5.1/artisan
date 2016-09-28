@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>Artisan 控制台 - Laravel 5.1 中文文档 | Laravel 中文网</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Laravel 中文网">
+    <meta name="description" content="Laravel - 为 WEB 艺术家创造的 PHP 框架。| Laravel 中文网">
+    <meta name="keywords" content="Laravel中文社区,php框架,laravel中文网,php framework,restful routing,laravel,laravel php">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 9]>
+		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../assets/css/laravel.css">
+    <link rel="stylesheet" href="../../assets/css/patch.css">
+</head>
+
+<body class="docs language-php">
+
+    <span class="overlay"></span>
+
+    <nav class="main">
+        <div class="container">
+            <a href="http://www.golaravel.com/laravel/" class="brand">
+                <img src="../../assets/img/laravel-logo.png" height="30"> Laravel
+            </a>
+
+            <div class="responsive-sidebar-nav">
+                <a href="artisan#" class="toggle-slide menu-link btn">&#9776;</a>
+            </div>
+
+            <div class="switcher">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        <!--<span class="faint">v</span> -->
+                        5.1
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="index.html">5.1</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/5.0">5.0</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.2">4.2</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.1">4.1</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.0">4.0</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <ul class="main-nav">
+                <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+                </li>
+                <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+                </li>
+                <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+                </li>
+                <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+                </li>
+                <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <nav id="slide-menu" class="slide-menu" role="navigation">
+
+        <div class="brand">
+            <a href="http://www.golaravel.com/laravel/">
+                <img src="../../assets/img/laravel-logo-white.png" height="50">
+            </a>
+        </div>
+
+        <ul class="slide-main-nav">
+            <li><a href="http://www.golaravel.com/laravel/">首页</a>
+            </li>
+            <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+            </li>
+            <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+            </li>
+            <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+            </li>
+            <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+            </li>
+            <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+            </li>
+
+        </ul>
+
+        <div class="slide-docs-nav">
+            <h2>文档目录</h2>
+            <ul>
+                <li>序言
+                    <ul>
+                        <li><a href="releases">版本说明</a>
+                        </li>
+                        <li><a href="upgrade">升级指南</a>
+                        </li>
+                        <li><a href="contributions">贡献指南</a>
+                        </li>
+                        <li><a href="http://www.golaravel.com/laravel/api/5.1">API 文档</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>安装设置
+                    <ul>
+                        <li><a href="installation">安装</a>
+                        </li>
+                        <li><a href="homestead">Homestead</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>教程
+                    <ul>
+                        <li><a href="quickstart">入门学习任务</a>
+                        </li>
+                        <li><a href="quickstart-intermediate">中级学习任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>基础知识
+                    <ul>
+                        <li><a href="routing">路由</a>
+                        </li>
+                        <li><a href="middleware">中间件</a>
+                        </li>
+                        <li><a href="controllers">控制器</a>
+                        </li>
+                        <li><a href="requests">请求</a>
+                        </li>
+                        <li><a href="responses">响应</a>
+                        </li>
+                        <li><a href="views">视图</a>
+                        </li>
+                        <li><a href="blade">Blade 模板</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统架构
+                    <ul>
+                        <li><a href="lifecycle">请求的生命周期</a>
+                        </li>
+                        <li><a href="structure">应用程序结构</a>
+                        </li>
+                        <li><a href="providers">服务提供者</a>
+                        </li>
+                        <li><a href="container">服务容器</a>
+                        </li>
+                        <li><a href="contracts">Contract</a>
+                        </li>
+                        <li><a href="facades">Facade</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统服务
+                    <ul>
+                        <li><a href="authentication">认证</a>
+                        </li>
+                        <li><a href="authorization">授权</a>
+                        </li>
+                        <li><a href="artisan">Artisan 控制台</a>
+                        </li>
+                        <li><a href="billing">计费</a>
+                        </li>
+                        <li><a href="cache">缓存</a>
+                        </li>
+                        <li><a href="collections">集合</a>
+                        </li>
+                        <li><a href="elixir">Elixir</a>
+                        </li>
+                        <li><a href="encryption">加密</a>
+                        </li>
+                        <li><a href="errors">错误与日志</a>
+                        </li>
+                        <li><a href="events">事件</a>
+                        </li>
+                        <li><a href="filesystem">文件系统 / 云存储</a>
+                        </li>
+                        <li><a href="hashing">哈希</a>
+                        </li>
+                        <li><a href="helpers">辅助方法</a>
+                        </li>
+                        <li><a href="localization">本地化</a>
+                        </li>
+                        <li><a href="mail">邮件</a>
+                        </li>
+                        <li><a href="packages">扩展包开发</a>
+                        </li>
+                        <li><a href="pagination">分页</a>
+                        </li>
+                        <li><a href="queues">队列</a>
+                        </li>
+                        <li><a href="redis">Redis</a>
+                        </li>
+                        <li><a href="session">会话</a>
+                        </li>
+                        <li><a href="envoy">SSH 任务</a>
+                        </li>
+                        <li><a href="scheduling">任务调度</a>
+                        </li>
+                        <li><a href="testing">测试</a>
+                        </li>
+                        <li><a href="validation">验证</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>数据库
+                    <ul>
+                        <li><a href="database">入门</a>
+                        </li>
+                        <li><a href="queries">查询构造器</a>
+                        </li>
+                        <li><a href="migrations">迁移</a>
+                        </li>
+                        <li><a href="seeding">数据填充</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Eloquent ORM
+                    <ul>
+                        <li><a href="eloquent">入门</a>
+                        </li>
+                        <li><a href="eloquent-relationships">关系</a>
+                        </li>
+                        <li><a href="eloquent-collections">集合</a>
+                        </li>
+                        <li><a href="eloquent-mutators">调整修改</a>
+                        </li>
+                        <li><a href="eloquent-serialization">序列化</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class="docs-wrapper container">
+
+        <section class="sidebar">
+            <ul>
+                <li>序言
+                    <ul>
+                        <li><a href="releases">版本说明</a>
+                        </li>
+                        <li><a href="upgrade">升级指南</a>
+                        </li>
+                        <li><a href="contributions">贡献指南</a>
+                        </li>
+                        <li><a href="http://www.golaravel.com/laravel/api/5.1">API 文档</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>安装设置
+                    <ul>
+                        <li><a href="installation">安装</a>
+                        </li>
+                        <li><a href="homestead">Homestead</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>教程
+                    <ul>
+                        <li><a href="quickstart">入门学习任务</a>
+                        </li>
+                        <li><a href="quickstart-intermediate">中级学习任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>基础知识
+                    <ul>
+                        <li><a href="routing">路由</a>
+                        </li>
+                        <li><a href="middleware">中间件</a>
+                        </li>
+                        <li><a href="controllers">控制器</a>
+                        </li>
+                        <li><a href="requests">请求</a>
+                        </li>
+                        <li><a href="responses">响应</a>
+                        </li>
+                        <li><a href="views">视图</a>
+                        </li>
+                        <li><a href="blade">Blade 模板</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统架构
+                    <ul>
+                        <li><a href="lifecycle">请求的生命周期</a>
+                        </li>
+                        <li><a href="structure">应用程序结构</a>
+                        </li>
+                        <li><a href="providers">服务提供者</a>
+                        </li>
+                        <li><a href="container">服务容器</a>
+                        </li>
+                        <li><a href="contracts">Contract</a>
+                        </li>
+                        <li><a href="facades">Facade</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统服务
+                    <ul>
+                        <li><a href="authentication">认证</a>
+                        </li>
+                        <li><a href="authorization">授权</a>
+                        </li>
+                        <li><a href="artisan">Artisan 控制台</a>
+                        </li>
+                        <li><a href="billing">计费</a>
+                        </li>
+                        <li><a href="cache">缓存</a>
+                        </li>
+                        <li><a href="collections">集合</a>
+                        </li>
+                        <li><a href="elixir">Elixir</a>
+                        </li>
+                        <li><a href="encryption">加密</a>
+                        </li>
+                        <li><a href="errors">错误与日志</a>
+                        </li>
+                        <li><a href="events">事件</a>
+                        </li>
+                        <li><a href="filesystem">文件系统 / 云存储</a>
+                        </li>
+                        <li><a href="hashing">哈希</a>
+                        </li>
+                        <li><a href="helpers">辅助方法</a>
+                        </li>
+                        <li><a href="localization">本地化</a>
+                        </li>
+                        <li><a href="mail">邮件</a>
+                        </li>
+                        <li><a href="packages">扩展包开发</a>
+                        </li>
+                        <li><a href="pagination">分页</a>
+                        </li>
+                        <li><a href="queues">队列</a>
+                        </li>
+                        <li><a href="redis">Redis</a>
+                        </li>
+                        <li><a href="session">会话</a>
+                        </li>
+                        <li><a href="envoy">SSH 任务</a>
+                        </li>
+                        <li><a href="scheduling">任务调度</a>
+                        </li>
+                        <li><a href="testing">测试</a>
+                        </li>
+                        <li><a href="validation">验证</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>数据库
+                    <ul>
+                        <li><a href="database">入门</a>
+                        </li>
+                        <li><a href="queries">查询构造器</a>
+                        </li>
+                        <li><a href="migrations">迁移</a>
+                        </li>
+                        <li><a href="seeding">数据填充</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Eloquent ORM
+                    <ul>
+                        <li><a href="eloquent">入门</a>
+                        </li>
+                        <li><a href="eloquent-relationships">关系</a>
+                        </li>
+                        <li><a href="eloquent-collections">集合</a>
+                        </li>
+                        <li><a href="eloquent-mutators">调整修改</a>
+                        </li>
+                        <li><a href="eloquent-serialization">序列化</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </section>
+
+        <article>
+            <h1>Artisan 控制台</h1>
+            <ul>
+                <li><a href="artisan#introduction">简介</a>
+                </li>
+                <li><a href="artisan#writing-commands">创建命令</a>
+                    <ul>
+                        <li><a href="artisan#command-structure">命令结构</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="artisan#command-io">命令的输入输出</a>
+                    <ul>
+                        <li><a href="artisan#defining-input-expectations">定义输入期望</a>
+                        </li>
+                        <li><a href="artisan#retrieving-input">获取输入</a>
+                        </li>
+                        <li><a href="artisan#prompting-for-input">在输入时提示</a>
+                        </li>
+                        <li><a href="artisan#writing-output">输出信息</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="artisan#registering-commands">注册命令</a>
+                </li>
+                <li><a href="artisan#calling-commands-via-code">在代码中调用命令</a>
+                </li>
+            </ul>
+            <p>
+                <a name="introduction"></a>
+            </p>
+            <h2>简介</h2>
+            <p>Artisan 是 Laravel 中自带的命令行工具的名称。它提供了一些对您的应用开发有帮助的命令。它是由强大的 Symfony Console 组件驱动的。为了查看所有可用的 Artisan 的命令，您可以使用 <code>list</code> 命令来列出它们：</p>
+            <pre><code>php artisan list
+</code></pre>
+            <p>每一个命令都包含有 ”help” 信息，用来显示和描述这个命令可用的参数和选项。为了查看帮助信息，仅需在命令前添加 <code>help</code> 即可：</p>
+            <pre><code>php artisan help migrate
+</code></pre>
+            <p>
+                <a name="writing-commands"></a>
+            </p>
+            <h2>创建命令</h2>
+            <p>除了 Artisan 自带的命令，您也可以创建与您的应用相关的自定义命令。这些命令将会被储存在 <code>app/Console/Commands</code> 文件夹下，然而，只要您的命令可以被 <code>composer.json</code> 自动载入，您可以自由地选择命令的存放位置。</p>
+            <p>要创建一个新命令，您可以使用 <code>make:console</code> 这个 Artisan 命令，这将会生成一个命令的模板文件帮助您进行开发：</p>
+            <pre><code>php artisan make:console SendEmails
+</code></pre>
+            <p>上面的命令会在 <code>app/Console/Commands/SendEmails.php</code> 文件中生成一个类。在创建命令时，加上 <code>--command</code> 这个选项，将可以指定这个终端命令的名称，即在运行 Artisan 命令的时候所输入的名称：</p>
+            <pre><code>php artisan make:console SendEmails --command=emails:send
+</code></pre>
+            <p>
+                <a name="command-structure"></a>
+            </p>
+            <h3>命令结构</h3>
+            <p>一旦您的命令生成后，您需要填写对应命令类中的 <code>signature</code> 和 <code>description</code> 属性，这将会在 <code>list</code> 命令清单上显示您的命令。</p>
+            <p><code>handle</code> 方法会在您的命令执行时被调用。您可以在这个方法中加入命令的具体逻辑。下面是一个自定义命令的例子。</p>
+            <p>既然我们要所有我们所需要的依赖注入到命令的构造器中。Laravel 的<a href="container">服务容器</a> 将会在构造器中自动的注入所有类型约束的依赖。为了更好的代码复用性，保持您的控制台命令简洁并且让它们由应用服务去处理完成它们的任务是一个很好的实践方法。</p>
+            <pre><code>&lt;?php
+
+namespace App\Console\Commands;
+
+use App\User;
+use App\DripEmailer;
+use Illuminate\Console\Command;
+
+class SendEmails extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'email:send {user}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Send drip e-mails to a user';
+
+    /**
+     * The drip e-mail service.
+     *
+     * @var DripEmailer
+     */
+    protected $drip;
+
+    /**
+     * Create a new command instance.
+     *
+     * @param  DripEmailer  $drip
+     * @return void
+     */
+    public function __construct(DripEmailer $drip)
+    {
+        parent::__construct();
+
+        $this-&gt;drip = $drip;
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $this-&gt;drip-&gt;send(User::find($this-&gt;argument('user')));
+    }
+}
+</code></pre>
+            <p>
+                <a name="command-io"></a>
+            </p>
+            <h2>命令的输入输出</h2>
+            <p>
+                <a name="defining-input-expectations"></a>
+            </p>
+            <h3>定义输入期望</h3>
+            <p>在写控制台命令的代码的时候时，收集用户输入的参数或选项是一项很普遍的事情。Laravel 通过使用您命令中的 <code>signature</code> 属性来使得定义您所期望的用户输入的形式变得非常方便。<code>signature</code> 属性允许您用一种简洁、富有表现力、仿路由的语法去定义命令的名称、参数、和选项。</p>
+            <p>所有用户提供的参数和选项被大括号所包裹。例如下面的命令实例中，定义了一个<strong>必填(required)</strong> 的参数 <code>user</code>：</p>
+            <pre><code>/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */
+protected $signature = 'email:send {user}';
+</code></pre>
+            <p>您也可以将其改为可选参数并为可选参数定义一个默认值：</p>
+            <pre><code>// Optional argument...
+email:send {user?}
+
+// Optional argument with default value...
+email:send {user=foo}
+</code></pre>
+            <p>选项，像参数一样，也是一种用户输入。但是，当在命令行指定时，需要在前面添加两个连字符（<code>--</code>）。我们可以在 <code>signature</code> 中像这样定义选项：</p>
+            <pre><code>/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */
+protected $signature = 'email:send {user} {--queue}';
+</code></pre>
+            <p>在这个例子中，<code>--queue</code> 开关在调用 Artisan 命令的时候被指定。如果 <code>--queue</code> 开关参数被传入，这个选项的值即为 <code>true</code>，否则，这个选项的值就为 <code>false</code>：</p>
+            <pre><code>php artisan email:send 1 --queue
+</code></pre>
+            <p>您也可以指定在选项后面加 <code>=</code> 号来让用户来分配一个值，表明这个值是会被用户所提供的：</p>
+            <pre><code>/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */
+protected $signature = 'email:send {user} {--queue=}';
+</code></pre>
+            <p>在这个例子中，用户可能会像这样传入选项的值：</p>
+            <pre><code>php artisan email:send 1 --queue=default
+</code></pre>
+            <p>您也可以像这样来给选项的值赋一个默认值</p>
+            <pre><code>email:send {user} {--queue=default}
+</code></pre>
+            <p>To assign a shortcut when defining an option, you may specify it before the option name and use a | delimiter to separate the shortcut from the full option name:</p>
+            <pre><code>email:send {user} {--Q|queue}
+</code></pre>
+            <h4>输入描述</h4>
+            <p>您可以用一个冒号分隔来对输入的参数和选项进行具体的描述：</p>
+            <pre><code>/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */
+protected $signature = 'email:send
+                        {user : The ID of the user}
+                        {--queue= : Whether the job should be queued}';
+</code></pre>
+            <p>
+                <a name="retrieving-input"></a>
+            </p>
+            <h3>获取输入</h3>
+            <p>当您的命令执行的时候，很显然需要得到命令输入的参数和选项的值。要得到它们的话，您可以使用 <code>argument</code> 和 <code>option</code> 方法：</p>
+            <p>使用 <code>argument</code> 方法获得参数的值</p>
+            <pre><code>/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */
+public function handle()
+{
+    $userId = $this-&gt;argument('user');
+
+    //
+}
+</code></pre>
+            <p>如果需要得到所有参数的值，调用不带参数的 <code>argument</code> 方法就可以得到一个参数值的数组：</p>
+            <pre><code>$arguments = $this-&gt;argument();
+</code></pre>
+            <p>得到选项的值的方法和得到参数的方法一样简单，使用 <code>option</code> 方法即可。和 <code>argument</code> 方法一样，您也可以调用不带参数的 <code>option</code> 方法来获得所有选项值的一个数组：</p>
+            <pre><code>// Retrieve a specific option...
+$queueName = $this-&gt;option('queue');
+
+// Retrieve all options...
+$options = $this-&gt;option();
+</code></pre>
+            <p>如果参数或者选项不存在，方法将返回 <code>null</code>。</p>
+            <p>
+                <a name="prompting-for-input"></a>
+            </p>
+            <h3>询问时输入</h3>
+            <p>除了显示输出，您有可能需要询问用户去提供命令的输入。<code>ask</code> 方法会提示设定好的信息显示给用户，并且获取他们的输入，然后返回用户在命令中的输入：</p>
+            <pre><code>/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */
+public function handle()
+{
+    $name = $this-&gt;ask('What is your name?');
+}
+</code></pre>
+            <p><code>secret</code> 方法和 <code>ask</code> 方法一样，但是用户的输入不会显示在控制台中。这个方法对用户输入的敏感信息比如密码非常有用：</p>
+            <pre><code>$password = $this-&gt;secret('What is the password?');
+</code></pre>
+            <h4>提示用户进行确认</h4>
+            <p>如果您需要让用户确认的话，您可以使用 <code>confirm</code> 方法。默认情况下，这个方法会返回 <code>false</code>。但是，如果用户输入 <code>y</code> ，这个方法会返回 <code>true</code>。</p>
+            <pre><code>if ($this-&gt;confirm('Do you wish to continue? [y|N]')) {
+    //
+}
+</code></pre>
+            <h4>提示用户进行选择</h4>
+            <p><code>anticipate</code> 方法可以被用来为可能的选择提供自动补全。无论选项是什么，用户仍然可以使用任何答案。</p>
+            <pre><code>$name = $this-&gt;anticipate('What is your name?', ['Taylor', 'Dayle']);
+</code></pre>
+            <p>如果您需要给用户一些预设好的选项，您可以使用 <code>choice</code> 方法。用户选择答案的索引，但是方法会返回答案的值。如果没有一个选项被选择的话，您可以设置一个默认值。</p>
+            <pre><code>$name = $this-&gt;choice('What is your name?', ['Taylor', 'Dayle'], false);
+</code></pre>
+            <p>
+                <a name="writing-output"></a>
+            </p>
+            <h3>输出信息</h3>
+            <p>使用 <code>line</code>、<code>info</code>、<code>comment</code>、<code>question</code> 和 <code>error</code> 方法将输出显示在控制台上。每一种方法都会根据其意图得到一个对应的 ANSI 颜色。</p>
+            <p>使用 <code>info</code> 方法来向用户显示信息。典型的，这个将会在控制台显示绿色字符：</p>
+            <pre><code>/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */
+public function handle()
+{
+    $this-&gt;info('Display this on the screen');
+}
+</code></pre>
+            <p>使用 <code>error</code> 方法显示错误信息。错误信息会显示绿色字符：</p>
+            <pre><code>$this-&gt;error('Something went wrong!');
+</code></pre>
+            <p>如果你希望在命令行输出普通内容，请使用 <code>line</code> 方法。<code>line</code> 方法并不会为输出的内容着色：</p>
+            <pre><code>$this-&gt;line('Display this on the screen');
+</code></pre>
+            <h4>表格布局</h4>
+            <p>使用 <code>table</code> 方法会让您正确地格式化数据的行列。仅需向方法传入表格的头部。表格的宽和高将会由给出的数据动态的计算出来：</p>
+            <pre><code>$headers = ['Name', 'Email'];
+
+$users = App\User::all(['name', 'email'])-&gt;toArray();
+
+$this-&gt;table($headers, $users);
+</code></pre>
+            <h4>进度条</h4>
+            <p>对于执行时间较长的任务，显示进度是非常有必要的。使用 <code>output</code> 对象，我们可以开始，推进和停止进度条。当您开始进度的时候，您必须定义执行的步数，然后在每一步执行结束后推进进度：</p>
+            <pre><code>$users = App\User::all();
+
+$bar = $this-&gt;output-&gt;createProgressBar(count($users));
+
+foreach ($users as $user) {
+    $this-&gt;performTask($user);
+
+    $bar-&gt;advance();
+}
+
+$bar-&gt;finish();
+</code></pre>
+            <p>更高级的选项，可以查看 <a href="http://symfony.com/doc/2.7/components/console/helpers/progressbar.html" target="_blank">Symfony Progress Bar component documentation</a>.</p>
+            <p>
+                <a name="registering-commands"></a>
+            </p>
+            <h2>注册命令</h2>
+            <p>一旦完成了命令的编写，您需要将它和Artisan注册在一起，这样它才能够正常使用。书写的代码在 <code>app/Console/Kernel.php</code> 文件中完成。</p>
+            <p>在这个文件中，您会在 <code>commands</code> 属性中发现一个命令的列表。简单地将您的命令的类名添加到列表中就可以注册您的命令了。当 Artisan 启动的时候，所有在这个属性中列出来的命令将会被 <a href="container">service container</a> 解析，并且在 Artisan 中注册。</p>
+            <pre><code>protected $commands = [
+    Commands\SendEmails::class
+];
+</code></pre>
+            <p>
+                <a name="calling-commands-via-code"></a>
+            </p>
+            <h2>在代码中调用命令</h2>
+            <p>有时候您期望在 CLI 外执行 Artisan 命令。例如，您可能期望在路由或者控制器中执行一个 Artisan 命令。您可以使用在 <code>Artisan</code> Facade 中的 <code>call</code> 方法去完成这件事情。<code>call</code>方法的第一个参数是命令的名称，传递给命令的参数所组成的数组构成第二个参数。此方法将会返回一个返回值。</p>
+            <pre><code>Route::get('/foo', function () {
+    $exitCode = Artisan::call('email:send', [
+        'user' =&gt; 1, '--queue' =&gt; 'default'
+    ]);
+
+    //
+});
+</code></pre>
+            <p>使用 <code>Artisan</code> Facade 中的 <code>queue</code> 命令可以让您在后台的队列 <a href="queues">queue workers</a> 中执行您的命令：</p>
+            <pre><code>Route::get('/foo', function () {
+    Artisan::queue('email:send', [
+        'user' =&gt; 1, '--queue' =&gt; 'default'
+    ]);
+
+    //
+});
+</code></pre>
+            <p>如果您需要强制指定某个选项的值不能是字符串，比如在 <code>migrate:refresh</code> 命令中的 <code>--force</code> 标志，您可以传入布尔值 <code>true</code> 或 <code>false</code> 来指定。</p>
+            <pre><code>$exitCode = Artisan::call('migrate:refresh', [
+    '--force' =&gt; true,
+]);
+</code></pre>
+            <h3>在其他命令中调用命令</h3>
+            <p>有时候你可能希望调用其他在已存在的 Artisan 命令中的命令。您可以用 <code>call</code> 方法来这样做。这个 <code>call</code> 方法接受命令名和一个由参数构成的数组参数。</p>
+            <pre><code>/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */
+public function handle()
+{
+    $this-&gt;call('email:send', [
+        'user' =&gt; 1, '--queue' =&gt; 'default'
+    ]);
+
+    //
+}
+</code></pre>
+            <p>如果您期望调用其他控制台命令并且隐藏它所有的输出，您可以使用 <code>callSilent</code> 方法。<code>callSilent</code> 方法和 <code>call</code> 方法的使用方法一样：</p>
+            <pre><code>$this-&gt;callSilent('email:send', [
+    'user' =&gt; 1, '--queue' =&gt; 'default'
+]);
+</code></pre>
+
+        </article>
+    </div>
+
+
+    <footer class="main">
+        <ul>
+            <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+            </li>
+            <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+            </li>
+            <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+            </li>
+            <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+            </li>
+            <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+            </li>
+
+        </ul>
+        <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
+        <p class="less-significant"><a href="http://jackmcdade.com" target="_blank">Design by Jack McDade</a>
+        </p>
+    </footer>
+
+    <script src="../../assets/js/laravel.js"></script>
+    <script src="../../assets/js/viewport-units-buggyfill.js"></script>
+    <script>
+        window.viewportUnitsBuggyfill.init();
+    </script>
+    <script type="text/javascript">
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc8d13872a523d9c286aa7affbe0921f1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</body>
+
+</html>

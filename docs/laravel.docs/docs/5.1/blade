@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>Blade 模板 - Laravel 5.1 中文文档 | Laravel 中文网</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Laravel 中文网">
+    <meta name="description" content="Laravel - 为 WEB 艺术家创造的 PHP 框架。| Laravel 中文网">
+    <meta name="keywords" content="Laravel中文社区,php框架,laravel中文网,php framework,restful routing,laravel,laravel php">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 9]>
+		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../assets/css/laravel.css">
+    <link rel="stylesheet" href="../../assets/css/patch.css">
+</head>
+
+<body class="docs language-php">
+
+    <span class="overlay"></span>
+
+    <nav class="main">
+        <div class="container">
+            <a href="http://www.golaravel.com/laravel/" class="brand">
+                <img src="../../assets/img/laravel-logo.png" height="30"> Laravel
+            </a>
+
+            <div class="responsive-sidebar-nav">
+                <a href="blade#" class="toggle-slide menu-link btn">&#9776;</a>
+            </div>
+
+            <div class="switcher">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        <!--<span class="faint">v</span> -->
+                        5.1
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="index.html">5.1</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/5.0">5.0</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.2">4.2</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.1">4.1</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.0">4.0</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <ul class="main-nav">
+                <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+                </li>
+                <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+                </li>
+                <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+                </li>
+                <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+                </li>
+                <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <nav id="slide-menu" class="slide-menu" role="navigation">
+
+        <div class="brand">
+            <a href="http://www.golaravel.com/laravel/">
+                <img src="../../assets/img/laravel-logo-white.png" height="50">
+            </a>
+        </div>
+
+        <ul class="slide-main-nav">
+            <li><a href="http://www.golaravel.com/laravel/">首页</a>
+            </li>
+            <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+            </li>
+            <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+            </li>
+            <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+            </li>
+            <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+            </li>
+            <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+            </li>
+
+        </ul>
+
+        <div class="slide-docs-nav">
+            <h2>文档目录</h2>
+            <ul>
+                <li>序言
+                    <ul>
+                        <li><a href="releases">版本说明</a>
+                        </li>
+                        <li><a href="upgrade">升级指南</a>
+                        </li>
+                        <li><a href="contributions">贡献指南</a>
+                        </li>
+                        <li><a href="http://www.golaravel.com/laravel/api/5.1">API 文档</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>安装设置
+                    <ul>
+                        <li><a href="installation">安装</a>
+                        </li>
+                        <li><a href="homestead">Homestead</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>教程
+                    <ul>
+                        <li><a href="quickstart">入门学习任务</a>
+                        </li>
+                        <li><a href="quickstart-intermediate">中级学习任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>基础知识
+                    <ul>
+                        <li><a href="routing">路由</a>
+                        </li>
+                        <li><a href="middleware">中间件</a>
+                        </li>
+                        <li><a href="controllers">控制器</a>
+                        </li>
+                        <li><a href="requests">请求</a>
+                        </li>
+                        <li><a href="responses">响应</a>
+                        </li>
+                        <li><a href="views">视图</a>
+                        </li>
+                        <li><a href="blade">Blade 模板</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统架构
+                    <ul>
+                        <li><a href="lifecycle">请求的生命周期</a>
+                        </li>
+                        <li><a href="structure">应用程序结构</a>
+                        </li>
+                        <li><a href="providers">服务提供者</a>
+                        </li>
+                        <li><a href="container">服务容器</a>
+                        </li>
+                        <li><a href="contracts">Contract</a>
+                        </li>
+                        <li><a href="facades">Facade</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统服务
+                    <ul>
+                        <li><a href="authentication">认证</a>
+                        </li>
+                        <li><a href="authorization">授权</a>
+                        </li>
+                        <li><a href="artisan">Artisan 控制台</a>
+                        </li>
+                        <li><a href="billing">计费</a>
+                        </li>
+                        <li><a href="cache">缓存</a>
+                        </li>
+                        <li><a href="collections">集合</a>
+                        </li>
+                        <li><a href="elixir">Elixir</a>
+                        </li>
+                        <li><a href="encryption">加密</a>
+                        </li>
+                        <li><a href="errors">错误与日志</a>
+                        </li>
+                        <li><a href="events">事件</a>
+                        </li>
+                        <li><a href="filesystem">文件系统 / 云存储</a>
+                        </li>
+                        <li><a href="hashing">哈希</a>
+                        </li>
+                        <li><a href="helpers">辅助方法</a>
+                        </li>
+                        <li><a href="localization">本地化</a>
+                        </li>
+                        <li><a href="mail">邮件</a>
+                        </li>
+                        <li><a href="packages">扩展包开发</a>
+                        </li>
+                        <li><a href="pagination">分页</a>
+                        </li>
+                        <li><a href="queues">队列</a>
+                        </li>
+                        <li><a href="redis">Redis</a>
+                        </li>
+                        <li><a href="session">会话</a>
+                        </li>
+                        <li><a href="envoy">SSH 任务</a>
+                        </li>
+                        <li><a href="scheduling">任务调度</a>
+                        </li>
+                        <li><a href="testing">测试</a>
+                        </li>
+                        <li><a href="validation">验证</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>数据库
+                    <ul>
+                        <li><a href="database">入门</a>
+                        </li>
+                        <li><a href="queries">查询构造器</a>
+                        </li>
+                        <li><a href="migrations">迁移</a>
+                        </li>
+                        <li><a href="seeding">数据填充</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Eloquent ORM
+                    <ul>
+                        <li><a href="eloquent">入门</a>
+                        </li>
+                        <li><a href="eloquent-relationships">关系</a>
+                        </li>
+                        <li><a href="eloquent-collections">集合</a>
+                        </li>
+                        <li><a href="eloquent-mutators">调整修改</a>
+                        </li>
+                        <li><a href="eloquent-serialization">序列化</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class="docs-wrapper container">
+
+        <section class="sidebar">
+            <ul>
+                <li>序言
+                    <ul>
+                        <li><a href="releases">版本说明</a>
+                        </li>
+                        <li><a href="upgrade">升级指南</a>
+                        </li>
+                        <li><a href="contributions">贡献指南</a>
+                        </li>
+                        <li><a href="http://www.golaravel.com/laravel/api/5.1">API 文档</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>安装设置
+                    <ul>
+                        <li><a href="installation">安装</a>
+                        </li>
+                        <li><a href="homestead">Homestead</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>教程
+                    <ul>
+                        <li><a href="quickstart">入门学习任务</a>
+                        </li>
+                        <li><a href="quickstart-intermediate">中级学习任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>基础知识
+                    <ul>
+                        <li><a href="routing">路由</a>
+                        </li>
+                        <li><a href="middleware">中间件</a>
+                        </li>
+                        <li><a href="controllers">控制器</a>
+                        </li>
+                        <li><a href="requests">请求</a>
+                        </li>
+                        <li><a href="responses">响应</a>
+                        </li>
+                        <li><a href="views">视图</a>
+                        </li>
+                        <li><a href="blade">Blade 模板</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统架构
+                    <ul>
+                        <li><a href="lifecycle">请求的生命周期</a>
+                        </li>
+                        <li><a href="structure">应用程序结构</a>
+                        </li>
+                        <li><a href="providers">服务提供者</a>
+                        </li>
+                        <li><a href="container">服务容器</a>
+                        </li>
+                        <li><a href="contracts">Contract</a>
+                        </li>
+                        <li><a href="facades">Facade</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统服务
+                    <ul>
+                        <li><a href="authentication">认证</a>
+                        </li>
+                        <li><a href="authorization">授权</a>
+                        </li>
+                        <li><a href="artisan">Artisan 控制台</a>
+                        </li>
+                        <li><a href="billing">计费</a>
+                        </li>
+                        <li><a href="cache">缓存</a>
+                        </li>
+                        <li><a href="collections">集合</a>
+                        </li>
+                        <li><a href="elixir">Elixir</a>
+                        </li>
+                        <li><a href="encryption">加密</a>
+                        </li>
+                        <li><a href="errors">错误与日志</a>
+                        </li>
+                        <li><a href="events">事件</a>
+                        </li>
+                        <li><a href="filesystem">文件系统 / 云存储</a>
+                        </li>
+                        <li><a href="hashing">哈希</a>
+                        </li>
+                        <li><a href="helpers">辅助方法</a>
+                        </li>
+                        <li><a href="localization">本地化</a>
+                        </li>
+                        <li><a href="mail">邮件</a>
+                        </li>
+                        <li><a href="packages">扩展包开发</a>
+                        </li>
+                        <li><a href="pagination">分页</a>
+                        </li>
+                        <li><a href="queues">队列</a>
+                        </li>
+                        <li><a href="redis">Redis</a>
+                        </li>
+                        <li><a href="session">会话</a>
+                        </li>
+                        <li><a href="envoy">SSH 任务</a>
+                        </li>
+                        <li><a href="scheduling">任务调度</a>
+                        </li>
+                        <li><a href="testing">测试</a>
+                        </li>
+                        <li><a href="validation">验证</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>数据库
+                    <ul>
+                        <li><a href="database">入门</a>
+                        </li>
+                        <li><a href="queries">查询构造器</a>
+                        </li>
+                        <li><a href="migrations">迁移</a>
+                        </li>
+                        <li><a href="seeding">数据填充</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Eloquent ORM
+                    <ul>
+                        <li><a href="eloquent">入门</a>
+                        </li>
+                        <li><a href="eloquent-relationships">关系</a>
+                        </li>
+                        <li><a href="eloquent-collections">集合</a>
+                        </li>
+                        <li><a href="eloquent-mutators">调整修改</a>
+                        </li>
+                        <li><a href="eloquent-serialization">序列化</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </section>
+
+        <article>
+            <h1>Blade 模板</h1>
+            <ul>
+                <li><a href="blade#introduction">简介</a>
+                </li>
+                <li><a href="blade#template-inheritance">模板继承</a>
+                    <ul>
+                        <li><a href="blade#defining-a-layout">定义一个页面布局模板</a>
+                        </li>
+                        <li><a href="blade#extending-a-layout">扩展一个页面布局模板</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="blade#displaying-data">展示数据</a>
+                </li>
+                <li><a href="blade#control-structures">控制结构</a>
+                </li>
+                <li><a href="blade#service-injection">Service Injection</a>
+                </li>
+                <li><a href="blade#extending-blade">扩展 Blade</a>
+                </li>
+            </ul>
+            <p>
+                <a name="introduction"></a>
+            </p>
+            <h2>简介</h2>
+            <p>Blade 是 Laravel 提供的一个既简单又强大的模板引擎。和其他流行的 PHP 模板引擎不一样，Blade 并不限制你在视图（view）中使用原生 PHP 代码。所有 Blade 视图页面都将被编译成原生 PHP 代码并缓存起来，除非你的模板文件被修改了，否则不会重新编译，这就意味着 Blade 基本上不会给你的应用增加任何额外负担。Blade 视图文件使用 <code>.blade.php</code> 文件扩展名，并且一般被存放在 <code>resources/views</code>                目录。</p>
+            <p>
+                <a name="template-inheritance"></a>
+            </p>
+            <h2>模板继承</h2>
+            <p>
+                <a name="defining-a-layout"></a>
+            </p>
+            <h3>定义一个页面布局模板</h3>
+            <p>使用 Blade 能获得的两个主要好处是 <em>模板继承（template inheritance）</em> 和 <em>视图片断（sections）</em>。我们先通过一个简单的实例认识一下 Blade 模板吧。首先，我们先来看一下命名为 &quot;master&quot; 的页面布局模板。由于大部分网站应用都会在页面之间共享某些相同的布局，所以将这个页面布局定义在一个单独的 Blade 模板中更便于使用。</p>
+            <pre><code>&lt;!-- Stored in resources/views/layouts/master.blade.php --&gt;
+
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;App Name - @yield('title')&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        @section('sidebar')
+            This is the master sidebar.
+        @show
+
+        &lt;div class=&quot;container&quot;&gt;
+            @yield('content')
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            <p>如上所见，这个文件中包含了通常见到的 HTML 标签。不过，请注意一下 <code>@section</code> 和 <code>@yield</code> 指令。<code>@section</code> 指令正像其名字所暗示的一样是用来定义一个视图片断（section）的；<code>@yield</code> 指令是用来展示某个指定 section 所代表的内容的。</p>
+            <p>好了，我们已经定义了一个页面布局模板了，接下来我们定义一个继承页面布局模板的子页面模板。</p>
+            <p>
+                <a name="extending-a-layout"></a>
+            </p>
+            <h3>扩展一个页面布局模板</h3>
+            <p>定义子页面时，你需要使用 Blade 提供的 <code>@extends</code> 指令来为子页面指定其所“继承”的页面布局模板。Views which <code>@extends</code> a Blade layout may inject content into the layout's sections using <code>@section</code> directives. Remember, as seen in the example above,
+                the contents of these sections will be displayed in the layout using <code>@yield</code>:</p>
+            <pre><code>&lt;!-- Stored in resources/views/child.blade.php --&gt;
+
+@extends('layouts.master')
+
+@section('title', 'Page Title')
+
+@section('sidebar')
+    @@parent
+
+    &lt;p&gt;This is appended to the master sidebar.&lt;/p&gt;
+@endsection
+
+@section('content')
+    &lt;p&gt;This is my body content.&lt;/p&gt;
+@endsection
+</code></pre>
+            <p>在上面的实例中，<code>sidebar</code> section is utilizing the <code>@@parent</code> directive to append (rather than overwriting) content to the layout's sidebar. The <code>@@parent</code> directive will be replaced by the content of the layout when
+                the view is rendered.</p>
+            <p>Of course, just like plain PHP views, Blade views may be returned from routes using the global <code>view</code> helper function:</p>
+            <pre><code>Route::get('blade', function () {
+    return view('child');
+});
+</code></pre>
+            <p>
+                <a name="displaying-data"></a>
+            </p>
+            <h2>展示数据</h2>
+            <p>You may display data passed to your Blade views by wrapping the variable in &quot;curly&quot; braces. For example, given the following route:</p>
+            <pre><code>Route::get('greeting', function () {
+    return view('welcome', ['name' =&gt; 'Samantha']);
+});
+</code></pre>
+            <p>你可以像下面这样展示 <code>name</code> 变量所代表的内容：</p>
+            <pre><code>Hello, {{ $name }}.
+</code></pre>
+            <p>当然，你不仅仅被局限于展示传递给视图的变量，你还可以展示 PHP 函数的返回值。事实上，你可以在 Blade 模板的双花括号表达式中调用任何 PHP 代码：</p>
+            <pre><code>The current UNIX timestamp is {{ time() }}.
+</code></pre>
+            <blockquote>
+                <p><strong>注意：</strong> Blade 中的 <code>{{ }}</code> 表达式的返回值将被自动传递给 PHP 的 <code>htmlentities</code> 函数进行处理，以防止 XSS 攻击。</p>
+            </blockquote>
+            <h4>Blade &amp; JavaScript 框架</h4>
+            <p>由于很多 JavaScript 框架也使用 &quot;花括号&quot; 来表示一个需要在浏览器端解析的表达式，因此，你可以通过使用 <code>@</code> 符号来告知 Blade 模板引擎保持后面的表达式原样输出。如下所示：</p>
+            <pre><code>&lt;h1&gt;Laravel&lt;/h1&gt;
+
+Hello, @{{ name }}.
+</code></pre>
+            <p>在上述实例中，<code>@</code> 符号将被 Blade 移除，同时，<code>{{ name }}</code> 表达式将被原样输出，这就能够确保在浏览器端被你的 JavaScript 框架解释了。</p>
+            <h4>如果数据存在就将其输出</h4>
+            <p>某些时候你需要输出变量的值，但是在输出前你并不知道这个变量是否被赋值了。我们将这个问题化作代码描述如下：</p>
+            <pre><code>{{ isset($name) ? $name : 'Default' }}
+</code></pre>
+            <p>不过，上面的表达式的确很繁复，幸好 Blade 提供了如下的速记方式：</p>
+            <pre><code>{{ $name or 'Default' }}
+</code></pre>
+            <p>在这个实例中，如果 <code>$name</code> 变量被赋了值，它的值将被输出出来。然而，如果没有被赋值，将输出默认的单词 <code>Default</code> 。</p>
+            <h4>展示未转义的数据</h4>
+            <p>默认情况下，Blade 的 <code>{{ }}</code> 表达式会自动通过 PHP 的 <code>htmlentities</code> 函数进行处理，以防止 XSS 攻击。如果你不希望自己的数据被转义，请使用如下语法：</p>
+            <pre><code>Hello, {!! $name !!}.
+</code></pre>
+            <blockquote>
+                <p><strong>注意：</strong> 务必要对用户上传的数据小心处理。最好对内容中的所有 HTML 使用双花括号进行输出，这样就能转义内容中的任何 HTML 标签了。</p>
+            </blockquote>
+            <p>
+                <a name="control-structures"></a>
+            </p>
+            <h2>Control Structures</h2>
+            <p>In addition to template inheritance and displaying data, Blade also provides convenient short-cuts for common PHP control structures, such as conditional statements and loops. These short-cuts provide a very clean, terse way of working with
+                PHP control structures, while also remaining familiar to their PHP counterparts.</p>
+            <h4>If 表达式</h4>
+            <p>通过 <code>@if</code>、<code>@elseif</code>、<code>@else</code> 和 <code>@endif</code> 指令可以创建 <code>if</code> 表达式。这些指令其实都有相对应的 PHP 表达式：</p>
+            <pre><code>@if (count($records) === 1)
+    I have one record!
+@elseif (count($records) &gt; 1)
+    I have multiple records!
+@else
+    I don't have any records!
+@endif
+</code></pre>
+            <p>为了使用方面，Blade 还提供了 <code>@unless</code> 指令：</p>
+            <pre><code>@unless (Auth::check())
+    You are not signed in.
+@endunless
+</code></pre>
+            <h4>循环</h4>
+            <p>除了状态表达式，Blade 还提供了简单的循环指令，与 PHP 所支持的循环结构相一致。并且，每一个指令的功能都和相对应的 PHP 表达式是一致的。</p>
+            <pre><code>@for ($i = 0; $i &lt; 10; $i++)
+    The current value is {{ $i }}
+@endfor
+
+@foreach ($users as $user)
+    &lt;p&gt;This is user {{ $user-&gt;id }}&lt;/p&gt;
+@endforeach
+
+@forelse ($users as $user)
+    &lt;li&gt;{{ $user-&gt;name }}&lt;/li&gt;
+@empty
+    &lt;p&gt;No users&lt;/p&gt;
+@endforelse
+
+@while (true)
+    &lt;p&gt;I'm looping forever.&lt;/p&gt;
+@endwhile
+</code></pre>
+            <h4>引入子视图</h4>
+            <p>Blade 提供的 <code>@include</code> 指令允许你方便地在一个视图中引入另一个视图。所有父视图中可用的变量也都可以在被引入的子视图中使用。</p>
+            <pre><code>&lt;div&gt;
+    @include('shared.errors')
+
+    &lt;form&gt;
+        &lt;!-- Form Contents --&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+            <p>虽然被引入的子视图能够访问父视图的所有可用数据，但是，你还可以向被引入的子视图传递额外的数据：</p>
+            <pre><code>@include('view.name', ['some' =&gt; 'data'])
+</code></pre>
+            <blockquote>
+                <p><strong>Note:</strong> You should avoid using the <code>__DIR__</code> and <code>__FILE__</code> constants in your Blade views, since they will refer to the location of the cached view.</p>
+            </blockquote>
+            <h4>Rendering Views For Collections</h4>
+            <p>You may combine loops and includes into one line with Blade's <code>@each</code> directive:</p>
+            <pre><code>@each('view.name', $jobs, 'job')
+</code></pre>
+            <p>The first argument is the view partial to render for each element in the array or collection. The second argument is the array or collection you wish to iterate over, while the third argument is the variable name that will be assigned to the
+                current iteration within the view. So, for example, if you are iterating over an array of <code>jobs</code>, typically you will want to access each job as a <code>job</code> variable within your view partial.</p>
+            <p>You may also pass a fourth argument to the <code>@each</code> directive. This argument determines the view that will be rendered if the given array is empty.</p>
+            <pre><code>@each('view.name', $jobs, 'job', 'view.empty')
+</code></pre>
+            <h4>注释</h4>
+            <p>Blade 还允许你在视图中添加注释。然而，和 HTML 注释不同的是，Blade 注释不会出现在最终生成的 HTML 中。</p>
+            <pre><code>{{-- This comment will not be present in the rendered HTML --}}
+</code></pre>
+            <p>
+                <a name="service-injection"></a>
+            </p>
+            <h2>Service Injection</h2>
+            <p>The <code>@inject</code> directive may be used to retrieve a service from the Laravel <a href="container">service container</a>. The first argument passed to <code>@inject</code> is the name of the variable the service will be placed
+                into, while the second argument is the class / interface name of the service you wish to resolve:</p>
+            <pre><code>@inject('metrics', 'App\Services\MetricsService')
+
+&lt;div&gt;
+    Monthly Revenue: {{ $metrics-&gt;monthlyRevenue() }}.
+&lt;/div&gt;
+</code></pre>
+            <p>
+                <a name="extending-blade"></a>
+            </p>
+            <h2>扩展 Blade</h2>
+            <p>Blade even allows you to define your own custom directives. You can use the <code>directive</code> method to register a directive. When the Blade compiler encounters the directive, it calls the provided callback with its parameter.</p>
+            <p>下面这个实例将创建一个 <code>@datetime($var)</code> 指令，用于格式化 <code>$var</code> 参数：</p>
+            <pre><code>&lt;?php
+
+namespace App\Providers;
+
+use Blade;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Perform post-registration booting of services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Blade::directive('datetime', function($expression) {
+            return &quot;&lt;?php echo with{$expression}-&gt;format('m/d/Y H:i'); ?&gt;&quot;;
+        });
+    }
+
+    /**
+     * Register bindings in the container.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+}
+</code></pre>
+            <p>As you can see, Laravel's <code>with</code> helper function was used in this directive. The <code>with</code> helper simply returns the object / value it is given, allowing for convenient method chaining. The final PHP generated by this directive
+                will be:</p>
+            <pre><code>&lt;?php echo with($var)-&gt;format('m/d/Y H:i'); ?&gt;
+</code></pre>
+
+        </article>
+    </div>
+
+
+    <footer class="main">
+        <ul>
+            <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+            </li>
+            <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+            </li>
+            <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+            </li>
+            <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+            </li>
+            <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+            </li>
+
+        </ul>
+        <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
+        <p class="less-significant"><a href="http://jackmcdade.com" target="_blank">Design by Jack McDade</a>
+        </p>
+    </footer>
+
+    <script src="../../assets/js/laravel.js"></script>
+    <script src="../../assets/js/viewport-units-buggyfill.js"></script>
+    <script>
+        window.viewportUnitsBuggyfill.init();
+    </script>
+    <script type="text/javascript">
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc8d13872a523d9c286aa7affbe0921f1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</body>
+
+</html>

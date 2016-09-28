@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>本地化 - Laravel 5.1 中文文档 | Laravel 中文网</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Laravel 中文网">
+    <meta name="description" content="Laravel - 为 WEB 艺术家创造的 PHP 框架。| Laravel 中文网">
+    <meta name="keywords" content="Laravel中文社区,php框架,laravel中文网,php framework,restful routing,laravel,laravel php">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 9]>
+		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../assets/css/laravel.css">
+    <link rel="stylesheet" href="../../assets/css/patch.css">
+</head>
+
+<body class="docs language-php">
+
+    <span class="overlay"></span>
+
+    <nav class="main">
+        <div class="container">
+            <a href="http://www.golaravel.com/laravel/" class="brand">
+                <img src="../../assets/img/laravel-logo.png" height="30"> Laravel
+            </a>
+
+            <div class="responsive-sidebar-nav">
+                <a href="localization#" class="toggle-slide menu-link btn">&#9776;</a>
+            </div>
+
+            <div class="switcher">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        <!--<span class="faint">v</span> -->
+                        5.1
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="index.html">5.1</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/5.0">5.0</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.2">4.2</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.1">4.1</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.0">4.0</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <ul class="main-nav">
+                <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+                </li>
+                <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+                </li>
+                <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+                </li>
+                <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+                </li>
+                <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <nav id="slide-menu" class="slide-menu" role="navigation">
+
+        <div class="brand">
+            <a href="http://www.golaravel.com/laravel/">
+                <img src="../../assets/img/laravel-logo-white.png" height="50">
+            </a>
+        </div>
+
+        <ul class="slide-main-nav">
+            <li><a href="http://www.golaravel.com/laravel/">首页</a>
+            </li>
+            <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+            </li>
+            <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+            </li>
+            <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+            </li>
+            <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+            </li>
+            <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+            </li>
+
+        </ul>
+
+        <div class="slide-docs-nav">
+            <h2>文档目录</h2>
+            <ul>
+                <li>序言
+                    <ul>
+                        <li><a href="releases">版本说明</a>
+                        </li>
+                        <li><a href="upgrade">升级指南</a>
+                        </li>
+                        <li><a href="contributions">贡献指南</a>
+                        </li>
+                        <li><a href="http://www.golaravel.com/laravel/api/5.1">API 文档</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>安装设置
+                    <ul>
+                        <li><a href="installation">安装</a>
+                        </li>
+                        <li><a href="homestead">Homestead</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>教程
+                    <ul>
+                        <li><a href="quickstart">入门学习任务</a>
+                        </li>
+                        <li><a href="quickstart-intermediate">中级学习任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>基础知识
+                    <ul>
+                        <li><a href="routing">路由</a>
+                        </li>
+                        <li><a href="middleware">中间件</a>
+                        </li>
+                        <li><a href="controllers">控制器</a>
+                        </li>
+                        <li><a href="requests">请求</a>
+                        </li>
+                        <li><a href="responses">响应</a>
+                        </li>
+                        <li><a href="views">视图</a>
+                        </li>
+                        <li><a href="blade">Blade 模板</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统架构
+                    <ul>
+                        <li><a href="lifecycle">请求的生命周期</a>
+                        </li>
+                        <li><a href="structure">应用程序结构</a>
+                        </li>
+                        <li><a href="providers">服务提供者</a>
+                        </li>
+                        <li><a href="container">服务容器</a>
+                        </li>
+                        <li><a href="contracts">Contract</a>
+                        </li>
+                        <li><a href="facades">Facade</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统服务
+                    <ul>
+                        <li><a href="authentication">认证</a>
+                        </li>
+                        <li><a href="authorization">授权</a>
+                        </li>
+                        <li><a href="artisan">Artisan 控制台</a>
+                        </li>
+                        <li><a href="billing">计费</a>
+                        </li>
+                        <li><a href="cache">缓存</a>
+                        </li>
+                        <li><a href="collections">集合</a>
+                        </li>
+                        <li><a href="elixir">Elixir</a>
+                        </li>
+                        <li><a href="encryption">加密</a>
+                        </li>
+                        <li><a href="errors">错误与日志</a>
+                        </li>
+                        <li><a href="events">事件</a>
+                        </li>
+                        <li><a href="filesystem">文件系统 / 云存储</a>
+                        </li>
+                        <li><a href="hashing">哈希</a>
+                        </li>
+                        <li><a href="helpers">辅助方法</a>
+                        </li>
+                        <li><a href="localization">本地化</a>
+                        </li>
+                        <li><a href="mail">邮件</a>
+                        </li>
+                        <li><a href="packages">扩展包开发</a>
+                        </li>
+                        <li><a href="pagination">分页</a>
+                        </li>
+                        <li><a href="queues">队列</a>
+                        </li>
+                        <li><a href="redis">Redis</a>
+                        </li>
+                        <li><a href="session">会话</a>
+                        </li>
+                        <li><a href="envoy">SSH 任务</a>
+                        </li>
+                        <li><a href="scheduling">任务调度</a>
+                        </li>
+                        <li><a href="testing">测试</a>
+                        </li>
+                        <li><a href="validation">验证</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>数据库
+                    <ul>
+                        <li><a href="database">入门</a>
+                        </li>
+                        <li><a href="queries">查询构造器</a>
+                        </li>
+                        <li><a href="migrations">迁移</a>
+                        </li>
+                        <li><a href="seeding">数据填充</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Eloquent ORM
+                    <ul>
+                        <li><a href="eloquent">入门</a>
+                        </li>
+                        <li><a href="eloquent-relationships">关系</a>
+                        </li>
+                        <li><a href="eloquent-collections">集合</a>
+                        </li>
+                        <li><a href="eloquent-mutators">调整修改</a>
+                        </li>
+                        <li><a href="eloquent-serialization">序列化</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class="docs-wrapper container">
+
+        <section class="sidebar">
+            <ul>
+                <li>序言
+                    <ul>
+                        <li><a href="releases">版本说明</a>
+                        </li>
+                        <li><a href="upgrade">升级指南</a>
+                        </li>
+                        <li><a href="contributions">贡献指南</a>
+                        </li>
+                        <li><a href="http://www.golaravel.com/laravel/api/5.1">API 文档</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>安装设置
+                    <ul>
+                        <li><a href="installation">安装</a>
+                        </li>
+                        <li><a href="homestead">Homestead</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>教程
+                    <ul>
+                        <li><a href="quickstart">入门学习任务</a>
+                        </li>
+                        <li><a href="quickstart-intermediate">中级学习任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>基础知识
+                    <ul>
+                        <li><a href="routing">路由</a>
+                        </li>
+                        <li><a href="middleware">中间件</a>
+                        </li>
+                        <li><a href="controllers">控制器</a>
+                        </li>
+                        <li><a href="requests">请求</a>
+                        </li>
+                        <li><a href="responses">响应</a>
+                        </li>
+                        <li><a href="views">视图</a>
+                        </li>
+                        <li><a href="blade">Blade 模板</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统架构
+                    <ul>
+                        <li><a href="lifecycle">请求的生命周期</a>
+                        </li>
+                        <li><a href="structure">应用程序结构</a>
+                        </li>
+                        <li><a href="providers">服务提供者</a>
+                        </li>
+                        <li><a href="container">服务容器</a>
+                        </li>
+                        <li><a href="contracts">Contract</a>
+                        </li>
+                        <li><a href="facades">Facade</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统服务
+                    <ul>
+                        <li><a href="authentication">认证</a>
+                        </li>
+                        <li><a href="authorization">授权</a>
+                        </li>
+                        <li><a href="artisan">Artisan 控制台</a>
+                        </li>
+                        <li><a href="billing">计费</a>
+                        </li>
+                        <li><a href="cache">缓存</a>
+                        </li>
+                        <li><a href="collections">集合</a>
+                        </li>
+                        <li><a href="elixir">Elixir</a>
+                        </li>
+                        <li><a href="encryption">加密</a>
+                        </li>
+                        <li><a href="errors">错误与日志</a>
+                        </li>
+                        <li><a href="events">事件</a>
+                        </li>
+                        <li><a href="filesystem">文件系统 / 云存储</a>
+                        </li>
+                        <li><a href="hashing">哈希</a>
+                        </li>
+                        <li><a href="helpers">辅助方法</a>
+                        </li>
+                        <li><a href="localization">本地化</a>
+                        </li>
+                        <li><a href="mail">邮件</a>
+                        </li>
+                        <li><a href="packages">扩展包开发</a>
+                        </li>
+                        <li><a href="pagination">分页</a>
+                        </li>
+                        <li><a href="queues">队列</a>
+                        </li>
+                        <li><a href="redis">Redis</a>
+                        </li>
+                        <li><a href="session">会话</a>
+                        </li>
+                        <li><a href="envoy">SSH 任务</a>
+                        </li>
+                        <li><a href="scheduling">任务调度</a>
+                        </li>
+                        <li><a href="testing">测试</a>
+                        </li>
+                        <li><a href="validation">验证</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>数据库
+                    <ul>
+                        <li><a href="database">入门</a>
+                        </li>
+                        <li><a href="queries">查询构造器</a>
+                        </li>
+                        <li><a href="migrations">迁移</a>
+                        </li>
+                        <li><a href="seeding">数据填充</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Eloquent ORM
+                    <ul>
+                        <li><a href="eloquent">入门</a>
+                        </li>
+                        <li><a href="eloquent-relationships">关系</a>
+                        </li>
+                        <li><a href="eloquent-collections">集合</a>
+                        </li>
+                        <li><a href="eloquent-mutators">调整修改</a>
+                        </li>
+                        <li><a href="eloquent-serialization">序列化</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </section>
+
+        <article>
+            <h1>本地化</h1>
+            <ul>
+                <li><a href="localization#introduction">介绍</a>
+                </li>
+                <li><a href="localization#basic-usage">基本用法</a>
+                    <ul>
+                        <li><a href="localization#pluralization">复数形式</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="localization#overriding-vendor-language-files">覆写扩展包的语言文件</a>
+                </li>
+            </ul>
+            <p>
+                <a name="introduction"></a>
+            </p>
+            <h2>介绍</h2>
+            <p>Laravel的本地化功能提供了一种便利的获取多种语言字串的方法，让你轻松地在应用中支持多语言。</p>
+            <p>语言字串保存在目录 <code>resources/lang</code> 下的文件中。应用支持的每种语言都对应该目录下的一个子目录：</p>
+            <pre><code>/resources
+    /lang
+        /en
+            messages.php
+        /es
+            messages.php
+</code></pre>
+            <p>所有语言文件都简单返回一个带有键值的数组。例如：</p>
+            <pre><code>&lt;?php
+
+return [
+    'welcome' =&gt; 'Welcome to our application'
+];
+</code></pre>
+            <h4>配置语言环境</h4>
+            <p>你的应用的默认语言保存在 <code>config/app.php</code> 配置文件中。当然，你可以根据需要修改该值。你也可以使用 <code>App</code> facade 的 <code>setLocale</code> 方法在运行时修改当前语言。</p>
+            <pre><code>Route::get('welcome/{locale}', function ($locale) {
+    App::setLocale($locale);
+
+    //
+});
+</code></pre>
+            <p>你也可以配置一个 &quot;备用语言&quot;, 它会在当前语言不含有给定的语句时被使用。 和默认语言一样，备用语言也在 <code>config/app.php</code> 中设置:</p>
+            <pre><code>'fallback_locale' =&gt; 'en',
+</code></pre>
+            <p>
+                <a name="basic-usage"></a>
+            </p>
+            <h2>基本用法</h2>
+            <p>你可以通过 <code>trans</code> 方法从语言文件中获取各行字串。<code>trans</code> 方法接受文件名和键值作为第一个参数。比如获取 <code>resources/lang/messages.php</code> 文件中键值为 <code>welcome</code> 的字串：</p>
+            <pre><code>echo trans('messages.welcome');
+</code></pre>
+            <p>如果你在使用 <a href="blade">Blade templating engine</a> 模版引擎，你可以使用 <code>{{ }}</code> 语法输出行字串：</p>
+            <pre><code>{{ trans('messages.welcome') }}
+</code></pre>
+            <p>如果该指定的行字串不存在，<code>trans</code> 函数只简单返回该行字串的键值。所以在上面的例子中，<code>trans</code> 将返回 <code>messages.welcome</code>如果不存在该行字串。</p>
+            <h4>在语言文件中替换参数</h4>
+            <p>你还可以给语言文件中的各行定义占位符。所有的占位符都以 <code>:</code> 为前缀。比如你可以定义一个带有占位符 name 的欢迎信息：</p>
+            <pre><code>'welcome' =&gt; 'Welcome, :name',
+</code></pre>
+            <p>要替换占位符，只需要将一个数组作为第二个参数传入 <code>trans</code> 函数：</p>
+            <pre><code>echo trans('messages.welcome', ['name' =&gt; 'Dayle']);
+</code></pre>
+            <p>
+                <a name="pluralization"></a>
+            </p>
+            <h3>复数形式</h3>
+            <p>复数是个复杂的问题，不同语言对复数有各自不同的规则。通过使用 “|” 标记，你可以区分一个字符串的单数和复数形式：</p>
+            <pre><code>'apples' =&gt; 'There is one apple|There are many apples',
+</code></pre>
+            <p>接下来你可以使用 <code>trans_choice</code> 方法来根据给定的”个数“取得字串。在下面的例子中，因为个数大于1，所以返回该行的复数形式的字串：</p>
+            <pre><code>echo trans_choice('messages.apples', 10);
+</code></pre>
+            <p>因为 Laravel 的翻译器由 Symfony 翻译组件提供，你可以创建更加复杂的复数规则：</p>
+            <pre><code>'apples' =&gt; '{0} There are none|[1,19] There are some|[20,Inf] There are many',
+</code></pre>
+            <p>
+                <a name="overriding-vendor-language-files"></a>
+            </p>
+            <h2>覆写扩展包的语言文件</h2>
+            <p>有些扩展包自带语言文件。你可以将语言文件放置在 <code>resources/lang/vendor/{package}/{locale}</code> 目录来覆写它们，而不是去修改扩展包的核心文件。</p>
+            <p>所以，如果你需要覆写 <code>skyrim/hearthfire</code> 扩展包的 <code>messages.php</code> 中的英文语句，你可以将一个语言文件放在 <code>resources/lang/vendor/hearthfire/en/messages.php</code>。在该文件中只定义需要覆写的语句。没有被覆写的语句将依然从扩展包的语言文件中加载。</p>
+
+        </article>
+    </div>
+
+
+    <footer class="main">
+        <ul>
+            <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+            </li>
+            <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+            </li>
+            <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+            </li>
+            <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+            </li>
+            <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+            </li>
+
+        </ul>
+        <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
+        <p class="less-significant"><a href="http://jackmcdade.com" target="_blank">Design by Jack McDade</a>
+        </p>
+    </footer>
+
+    <script src="../../assets/js/laravel.js"></script>
+    <script src="../../assets/js/viewport-units-buggyfill.js"></script>
+    <script>
+        window.viewportUnitsBuggyfill.init();
+    </script>
+    <script type="text/javascript">
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc8d13872a523d9c286aa7affbe0921f1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</body>
+
+</html>

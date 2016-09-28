@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTTP 控制器 - Laravel 5.1 中文文档 | Laravel 中文网</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Laravel 中文网">
+    <meta name="description" content="Laravel - 为 WEB 艺术家创造的 PHP 框架。| Laravel 中文网">
+    <meta name="keywords" content="Laravel中文社区,php框架,laravel中文网,php framework,restful routing,laravel,laravel php">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 9]>
+		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../assets/css/laravel.css">
+    <link rel="stylesheet" href="../../assets/css/patch.css">
+</head>
+
+<body class="docs language-php">
+
+    <span class="overlay"></span>
+
+    <nav class="main">
+        <div class="container">
+            <a href="http://www.golaravel.com/laravel/" class="brand">
+                <img src="../../assets/img/laravel-logo.png" height="30"> Laravel
+            </a>
+
+            <div class="responsive-sidebar-nav">
+                <a href="controllers#" class="toggle-slide menu-link btn">&#9776;</a>
+            </div>
+
+            <div class="switcher">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        <!--<span class="faint">v</span> -->
+                        5.1
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="index.html">5.1</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/5.0">5.0</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.2">4.2</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.1">4.1</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="http://www.golaravel.com/laravel/docs/4.0">4.0</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <ul class="main-nav">
+                <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+                </li>
+                <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+                </li>
+                <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+                </li>
+                <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+                </li>
+                <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <nav id="slide-menu" class="slide-menu" role="navigation">
+
+        <div class="brand">
+            <a href="http://www.golaravel.com/laravel/">
+                <img src="../../assets/img/laravel-logo-white.png" height="50">
+            </a>
+        </div>
+
+        <ul class="slide-main-nav">
+            <li><a href="http://www.golaravel.com/laravel/">首页</a>
+            </li>
+            <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+            </li>
+            <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+            </li>
+            <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+            </li>
+            <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+            </li>
+            <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+            </li>
+
+        </ul>
+
+        <div class="slide-docs-nav">
+            <h2>文档目录</h2>
+            <ul>
+                <li>序言
+                    <ul>
+                        <li><a href="releases">版本说明</a>
+                        </li>
+                        <li><a href="upgrade">升级指南</a>
+                        </li>
+                        <li><a href="contributions">贡献指南</a>
+                        </li>
+                        <li><a href="http://www.golaravel.com/laravel/api/5.1">API 文档</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>安装设置
+                    <ul>
+                        <li><a href="installation">安装</a>
+                        </li>
+                        <li><a href="homestead">Homestead</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>教程
+                    <ul>
+                        <li><a href="quickstart">入门学习任务</a>
+                        </li>
+                        <li><a href="quickstart-intermediate">中级学习任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>基础知识
+                    <ul>
+                        <li><a href="routing">路由</a>
+                        </li>
+                        <li><a href="middleware">中间件</a>
+                        </li>
+                        <li><a href="controllers">控制器</a>
+                        </li>
+                        <li><a href="requests">请求</a>
+                        </li>
+                        <li><a href="responses">响应</a>
+                        </li>
+                        <li><a href="views">视图</a>
+                        </li>
+                        <li><a href="blade">Blade 模板</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统架构
+                    <ul>
+                        <li><a href="lifecycle">请求的生命周期</a>
+                        </li>
+                        <li><a href="structure">应用程序结构</a>
+                        </li>
+                        <li><a href="providers">服务提供者</a>
+                        </li>
+                        <li><a href="container">服务容器</a>
+                        </li>
+                        <li><a href="contracts">Contract</a>
+                        </li>
+                        <li><a href="facades">Facade</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统服务
+                    <ul>
+                        <li><a href="authentication">认证</a>
+                        </li>
+                        <li><a href="authorization">授权</a>
+                        </li>
+                        <li><a href="artisan">Artisan 控制台</a>
+                        </li>
+                        <li><a href="billing">计费</a>
+                        </li>
+                        <li><a href="cache">缓存</a>
+                        </li>
+                        <li><a href="collections">集合</a>
+                        </li>
+                        <li><a href="elixir">Elixir</a>
+                        </li>
+                        <li><a href="encryption">加密</a>
+                        </li>
+                        <li><a href="errors">错误与日志</a>
+                        </li>
+                        <li><a href="events">事件</a>
+                        </li>
+                        <li><a href="filesystem">文件系统 / 云存储</a>
+                        </li>
+                        <li><a href="hashing">哈希</a>
+                        </li>
+                        <li><a href="helpers">辅助方法</a>
+                        </li>
+                        <li><a href="localization">本地化</a>
+                        </li>
+                        <li><a href="mail">邮件</a>
+                        </li>
+                        <li><a href="packages">扩展包开发</a>
+                        </li>
+                        <li><a href="pagination">分页</a>
+                        </li>
+                        <li><a href="queues">队列</a>
+                        </li>
+                        <li><a href="redis">Redis</a>
+                        </li>
+                        <li><a href="session">会话</a>
+                        </li>
+                        <li><a href="envoy">SSH 任务</a>
+                        </li>
+                        <li><a href="scheduling">任务调度</a>
+                        </li>
+                        <li><a href="testing">测试</a>
+                        </li>
+                        <li><a href="validation">验证</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>数据库
+                    <ul>
+                        <li><a href="database">入门</a>
+                        </li>
+                        <li><a href="queries">查询构造器</a>
+                        </li>
+                        <li><a href="migrations">迁移</a>
+                        </li>
+                        <li><a href="seeding">数据填充</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Eloquent ORM
+                    <ul>
+                        <li><a href="eloquent">入门</a>
+                        </li>
+                        <li><a href="eloquent-relationships">关系</a>
+                        </li>
+                        <li><a href="eloquent-collections">集合</a>
+                        </li>
+                        <li><a href="eloquent-mutators">调整修改</a>
+                        </li>
+                        <li><a href="eloquent-serialization">序列化</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class="docs-wrapper container">
+
+        <section class="sidebar">
+            <ul>
+                <li>序言
+                    <ul>
+                        <li><a href="releases">版本说明</a>
+                        </li>
+                        <li><a href="upgrade">升级指南</a>
+                        </li>
+                        <li><a href="contributions">贡献指南</a>
+                        </li>
+                        <li><a href="http://www.golaravel.com/laravel/api/5.1">API 文档</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>安装设置
+                    <ul>
+                        <li><a href="installation">安装</a>
+                        </li>
+                        <li><a href="homestead">Homestead</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>教程
+                    <ul>
+                        <li><a href="quickstart">入门学习任务</a>
+                        </li>
+                        <li><a href="quickstart-intermediate">中级学习任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>基础知识
+                    <ul>
+                        <li><a href="routing">路由</a>
+                        </li>
+                        <li><a href="middleware">中间件</a>
+                        </li>
+                        <li><a href="controllers">控制器</a>
+                        </li>
+                        <li><a href="requests">请求</a>
+                        </li>
+                        <li><a href="responses">响应</a>
+                        </li>
+                        <li><a href="views">视图</a>
+                        </li>
+                        <li><a href="blade">Blade 模板</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统架构
+                    <ul>
+                        <li><a href="lifecycle">请求的生命周期</a>
+                        </li>
+                        <li><a href="structure">应用程序结构</a>
+                        </li>
+                        <li><a href="providers">服务提供者</a>
+                        </li>
+                        <li><a href="container">服务容器</a>
+                        </li>
+                        <li><a href="contracts">Contract</a>
+                        </li>
+                        <li><a href="facades">Facade</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>系统服务
+                    <ul>
+                        <li><a href="authentication">认证</a>
+                        </li>
+                        <li><a href="authorization">授权</a>
+                        </li>
+                        <li><a href="artisan">Artisan 控制台</a>
+                        </li>
+                        <li><a href="billing">计费</a>
+                        </li>
+                        <li><a href="cache">缓存</a>
+                        </li>
+                        <li><a href="collections">集合</a>
+                        </li>
+                        <li><a href="elixir">Elixir</a>
+                        </li>
+                        <li><a href="encryption">加密</a>
+                        </li>
+                        <li><a href="errors">错误与日志</a>
+                        </li>
+                        <li><a href="events">事件</a>
+                        </li>
+                        <li><a href="filesystem">文件系统 / 云存储</a>
+                        </li>
+                        <li><a href="hashing">哈希</a>
+                        </li>
+                        <li><a href="helpers">辅助方法</a>
+                        </li>
+                        <li><a href="localization">本地化</a>
+                        </li>
+                        <li><a href="mail">邮件</a>
+                        </li>
+                        <li><a href="packages">扩展包开发</a>
+                        </li>
+                        <li><a href="pagination">分页</a>
+                        </li>
+                        <li><a href="queues">队列</a>
+                        </li>
+                        <li><a href="redis">Redis</a>
+                        </li>
+                        <li><a href="session">会话</a>
+                        </li>
+                        <li><a href="envoy">SSH 任务</a>
+                        </li>
+                        <li><a href="scheduling">任务调度</a>
+                        </li>
+                        <li><a href="testing">测试</a>
+                        </li>
+                        <li><a href="validation">验证</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>数据库
+                    <ul>
+                        <li><a href="database">入门</a>
+                        </li>
+                        <li><a href="queries">查询构造器</a>
+                        </li>
+                        <li><a href="migrations">迁移</a>
+                        </li>
+                        <li><a href="seeding">数据填充</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>Eloquent ORM
+                    <ul>
+                        <li><a href="eloquent">入门</a>
+                        </li>
+                        <li><a href="eloquent-relationships">关系</a>
+                        </li>
+                        <li><a href="eloquent-collections">集合</a>
+                        </li>
+                        <li><a href="eloquent-mutators">调整修改</a>
+                        </li>
+                        <li><a href="eloquent-serialization">序列化</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </section>
+
+        <article>
+            <h1>HTTP 控制器</h1>
+            <ul>
+                <li><a href="controllers#introduction">简介</a>
+                </li>
+                <li><a href="controllers#basic-controllers">基础控制器</a>
+                </li>
+                <li><a href="controllers#controller-middleware">控制器中间件</a>
+                </li>
+                <li><a href="controllers#restful-resource-controllers">RESTful 资源控制器</a>
+                    <ul>
+                        <li><a href="controllers#restful-partial-resource-routes">局部资源路由</a>
+                        </li>
+                        <li><a href="controllers#restful-naming-resource-routes">命名资源路由</a>
+                        </li>
+                        <li><a href="controllers#restful-nested-resources">嵌套资源</a>
+                        </li>
+                        <li><a href="controllers#restful-supplementing-resource-controllers">扩展资源路由</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="controllers#implicit-controllers">隐式控制器</a>
+                </li>
+                <li><a href="controllers#dependency-injection-and-controllers">依赖注入 &amp; 控制器</a>
+                </li>
+                <li><a href="controllers#route-caching">路由缓存</a>
+                </li>
+            </ul>
+            <p>
+                <a name="introduction"></a>
+            </p>
+            <h2>简介</h2>
+            <p>你可能更希望把请求处理逻辑交由控制器类来处理，而不是都交给一个 <code>routes.php</code> 文件。控制器可以将相应的 HTTP 请求逻辑集合到一个类里面。控制器类一般存放在 <code>app/Http/Controllers</code> 目录下。</p>
+            <p>
+                <a name="basic-controllers"></a>
+            </p>
+            <h2>基础控制器</h2>
+            <p>如下是一个基础控制器类的例子。在 Laravel 的默认安装中，所有的控制器都继承了控制器基类。</p>
+            <pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\User;
+use App\Http\Controllers\Controller;
+
+class UserController extends Controller
+{
+    /**
+     * 显示指定用户的个人信息
+     * 
+     * @param  int  $id
+     * @return Response
+     */
+    public function showProfile($id)
+    {
+        return view('user.profile', ['user' =&gt; User::findOrFail($id)]);
+    }
+}
+</code></pre>
+            <p>我们可以像下面一样路由至控制器动作方法当中：</p>
+            <pre><code>Route::get('user/{id}', 'UserController@showProfile');
+</code></pre>
+            <p>现在，当一个请求匹配到一个特定的路由URI时，<code>UserController</code> 类的 <code>showProfile</code> 方法将会被执行。当然，路由的参数 <code>id</code> 也会传递到相应的方法当中。</p>
+            <h4>控制器 &amp; 命名空间</h4>
+            <p>有一点是必须特别注意的，那就是当我们在定义一个控制器路由的时候，我们无需指定一个完整的控制器命名空间。我们只需要定义紧跟根命名空间之后的那一部分名称。在默认情况下，<code>RouteServiceProvider</code> 将会读取包含在根控制器命名空间下的路由集合。</p>
+            <p>如果你选择利用 PHP 的命名空间机制以嵌套的方式组织控制器在 <code>App\Http\Controllers</code> 目录下的结构的话，引用类时只需指定相对于 <code>App\Http\Controllers</code> 根命名空间的类名即可。因此，如果你的控制器类的全名是 <code>App\Http\Controllers\Photos\AdminController</code> 的话，只需像下面这样注册路由即可：</p>
+            <pre><code>Route::get('foo', 'Photos\AdminController@method');
+</code></pre>
+            <h4>命名控制器路由</h4>
+            <p>你也许希望像闭包路由一样指定控制器路由的名称：</p>
+            <pre><code>Route::get('foo', ['uses' =&gt; 'FooController@method', 'as' =&gt; 'name']);
+</code></pre>
+            <h4>URL 到控制器动作的转化</h4>
+            <p>你也可以使用 <code>route</code> 助手方法来为一个命名过的控制器路由生成 URL：</p>
+            <pre><code>$url = route('name');
+</code></pre>
+            <p>You may also use the <code>action</code> helper method to generate a URL using the controller's class and method names. Again, we only need to specify the part of the controller class name that comes after the base <code>App\Http\Controllers</code>                namespace:</p>
+            <pre><code>$url = action('FooController@method');
+</code></pre>
+            <p>You may access the name of the controller action being run using the <code>currentRouteAction</code> method on the <code>Route</code> facade:</p>
+            <pre><code>$action = Route::currentRouteAction();
+</code></pre>
+            <p>
+                <a name="controller-middleware"></a>
+            </p>
+            <h2>Controller Middleware 控制器中间件</h2>
+            <p>你可以像下面的例子一样把<a href="middleware">中间件</a>指派给控制器路由：</p>
+            <pre><code>Route::get('profile', [
+    'middleware' =&gt; 'auth',
+    'uses' =&gt; 'UserController@showProfile'
+]);
+</code></pre>
+            <p>然而，在控制器的构造方法里面指派中间件会显得更加的方便。通过在控制器的构造器里面使用<code>中间件</code>方法，你会发现为控制器指派中间件是那么的简单。同时，你还可以限定中间件只对特定的方法起作用。</p>
+            <pre><code>class UserController extends Controller
+{
+    /**
+     * Instantiate a new UserController instance.
+     * 实例化一个新的UserController实例
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this-&gt;middleware('auth');
+
+        $this-&gt;middleware('log', ['only' =&gt; ['fooAction', 'barAction']]);
+
+        $this-&gt;middleware('subscribed', ['except' =&gt; ['fooAction', 'barAction']]);
+    }
+}
+</code></pre>
+            <p>
+                <a name="restful-resource-controllers"></a>
+            </p>
+            <h2>RESTful 资源控制器</h2>
+            <p>资源控制器可以让你快捷的创建 RESTful 控制器。举个例子，你也许希望创建一个控制器来处理所有有关于“照片”的 HTTP 请求，这些“照片”都是你的应用储存起来的。通过使用 Artisan 命令 <code>make:controller</code>，我们可以快速的创建一个控制器：</p>
+            <pre><code>php artisan make:controller PhotoController
+</code></pre>
+            <p>这个 Artisan 命令将会在 <code>app/Http/Controllers/</code> 目录下生成一个控制器文件<code>PhotoController.php</code>。这个控制器将会包含为每一种可用资源操作的方法。</p>
+            <p>接下来，你需要注册一个指向控制器的资源路由：</p>
+            <pre><code>Route::resource('photo', 'PhotoController');
+</code></pre>
+            <p>单这一行的路由声明就在照片资源上创建了许多处理各种各样 RESTful 请求的路由。同样的，在生成的控制器里面，已经拥有了所有相关的控制器方法，包括一些注释来告诉你这些方法对应的 URI 和动词。</p>
+            <h4>资源管理器处理的动作</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Verb</th>
+                        <th>Path</th>
+                        <th>Action</th>
+                        <th>Route Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>/photo</code>
+                        </td>
+                        <td>index</td>
+                        <td>photo.index</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>/photo/create</code>
+                        </td>
+                        <td>create</td>
+                        <td>photo.create</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td><code>/photo</code>
+                        </td>
+                        <td>store</td>
+                        <td>photo.store</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>/photo/{photo}</code>
+                        </td>
+                        <td>show</td>
+                        <td>photo.show</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>/photo/{photo}/edit</code>
+                        </td>
+                        <td>edit</td>
+                        <td>photo.edit</td>
+                    </tr>
+                    <tr>
+                        <td>PUT/PATCH</td>
+                        <td><code>/photo/{photo}</code>
+                        </td>
+                        <td>update</td>
+                        <td>photo.update</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td><code>/photo/{photo}</code>
+                        </td>
+                        <td>destroy</td>
+                        <td>photo.destroy</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                <a name="restful-partial-resource-routes"></a>
+            </p>
+            <h4>局部资源路由</h4>
+            <p>W当声明一个资源路由的时候，你也许会在路由上指定了一个动作的子集来处理请求：</p>
+            <pre><code>Route::resource('photo', 'PhotoController',
+                ['only' =&gt; ['index', 'show']]);
+
+Route::resource('photo', 'PhotoController',
+                ['except' =&gt; ['create', 'store', 'update', 'destroy']]);
+</code></pre>
+            <p>
+                <a name="restful-naming-resource-routes"></a>
+            </p>
+            <h4>命名资源路由</h4>
+            <p>在默认情况下，所有的资源控制器动作都会有一个路由名称。然而，你也可以通过传递一个 <code>names</code> 数组来重写这些名称。</p>
+            <pre><code>Route::resource('photo', 'PhotoController',
+                ['names' =&gt; ['create' =&gt; 'photo.build']]);
+</code></pre>
+            <p>
+                <a name="restful-nested-resources"></a>
+            </p>
+            <h4>嵌套资源</h4>
+            <p>有时候，你可能需要为一个“嵌套”资源定义路由规则。例如，一个照片资源可能会附加有很多的“评论”。为了“嵌套”到资源路由器，可以在你的路由声明中使用<code>.</code>号来实现：</p>
+            <pre><code>Route::resource('photos.comments', 'PhotoCommentController');
+</code></pre>
+            <p>这条路由将会注册了一个“嵌套”资源，你可以通过的 URL 来进行访问：<code>photos/{photos}/comments/{comments}</code>。</p>
+            <pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+
+class PhotoCommentController extends Controller
+{
+    /**
+     * 显示指定的照片评论
+     *
+     * @param  int  $photoId
+     * @param  int  $commentId
+     * @return Response
+     */
+    public function show($photoId, $commentId)
+    {
+        //
+    }
+}
+</code></pre>
+            <p>
+                <a name="restful-supplementing-resource-controllers"></a>
+            </p>
+            <h4>扩展资源控制器</h4>
+            <p>如果有需要在资源控制器默认路由的基础上添加额外的路由，那么你应该在调用 <code>Route::resource</code> 之前就定义好那些路由。否则，<code>resource</code> 方法定义的路由的优先级会高于你添加的扩展路由：</p>
+            <pre><code>Route::get('photos/popular', 'PhotoController@method');
+
+Route::resource('photos', 'PhotoController');
+</code></pre>
+            <p>
+                <a name="implicit-controllers"></a>
+            </p>
+            <h2>隐式控制器</h2>
+            <p>Laravel 可以让你只需要定义一条路由规则，就可以在一个控制器类中轻松的处理所有动作。首先，使用<code>Route::controller</code> 方法定义一条路由。这个 <code>controller</code> 方法接收两个参数。第一个参数是控制器处理的基础 URI，第二个参数则是控制器的类名。</p>
+            <pre><code>Route::controller('users', 'UserController');
+</code></pre>
+            <p>接着，只需要在你的控制器中加入方法。方法的名字应当以它们所响应的 HTTP 动词开头、然后是首字母大写的URI名称：</p>
+            <pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+class UserController extends Controller
+{
+    /**
+     * 响应／users的GET请求
+     */
+    public function getIndex()
+    {
+        //
+    }
+
+    /**
+     * 响应／users／show／1的GET请求
+     */
+    public function getShow($id)
+    {
+        //
+    }
+
+    /**
+     * 响应／users/admin－profile的GET请求
+     */
+    public function getAdminProfile()
+    {
+        //
+    }
+
+    /**
+     * 响应／users／profile的POST请求
+     */
+    public function postProfile()
+    {
+        //
+    }
+}
+</code></pre>
+            <p>正如上面的例子所示，控制器里的 <code>index</code> 方法将会响应根 URI，也就是在这个例子当中的 <code>users</code>。</p>
+            <h4>指定路由名称</h4>
+            <p>如果你想要为控制器自定义<a href="routing#named-routes">命名</a>路由，你可以通过给<code>controller</code>方法的第三个参数传递一个名称数组来实现：</p>
+            <pre><code>Route::controller('users', 'UserController', [
+    'getShow' =&gt; 'user.show',
+]);
+</code></pre>
+            <p>
+                <a name="dependency-injection-and-controllers"></a>
+            </p>
+            <h2>依赖注入 &amp; 控制器</h2>
+            <h4>构造器注入</h4>
+            <p>Laravel <a href="container">服务容器</a> 是用来转换所有 Laravel 控制器的。正因如此，你可以在控制器的构造器当中对依赖关系进行类型限制。依赖关系会被自动的转换和注入到控制器实例当中：</p>
+            <pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Routing\Controller;
+use App\Repositories\UserRepository;
+
+class UserController extends Controller
+{
+    /**
+     * 用户仓库实例。
+     */
+    protected $users;
+
+    /**
+     * 创建一个新的控制器实例。
+     *
+     * @param  UserRepository  $users
+     * @return void
+     */
+    public function __construct(UserRepository $users)
+    {
+        $this-&gt;users = $users;
+    }
+}
+</code></pre>
+            <p>当然，你也可以对 <a href="contracts">Laravel contract</a> 进行类型限制。只要容器能够对它进行转换，你就可以这么做。</p>
+            <h4>方法注入</h4>
+            <p>作为依赖注入的补充，你也可以在你的控制器动作方法中对依赖关系进行类型限制。例如，我们可以像如下所示例子那样，对 <code>Illuminate\Http\Request</code> 实例进行类型限制：</p>
+            <pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+
+class UserController extends Controller
+{
+    /**
+     * 储存一个新用户的信息。
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        $name = $request-&gt;input('name');
+
+        //
+    }
+}
+</code></pre>
+            <p>如果你的控制器方法如果预料到需要接收一个路由参数，你只需要把这个路由参数放到其它依赖对象后面即可。例如，如果你是这样定义路由的：</p>
+            <pre><code>Route::put('user/{id}', 'UserController@update');
+</code></pre>
+            <p>这时候，你仍然可以类型限制 <code>Illuminate\Http\Request</code>，同时，你可以用如下所示方法来定义你的控制器方法以访问 <code>id</code> 参数：</p>
+            <pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+
+class UserController extends Controller
+{
+    /**
+     * Update the specified user.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+}
+</code></pre>
+            <p>
+                <a name="route-caching"></a>
+            </p>
+            <h2>路由缓存</h2>
+            <blockquote>
+                <p><strong>Note:</strong> Route caching does not work with Closure based routes. To use route caching, you must convert any Closure routes to use controller classes.</p>
+            </blockquote>
+            <p>If your application is exclusively using controller based routes, you may take advantage of Laravel's route cache. Using the route cache will drastically decrease the amount of time it takes to register all of your application's routes. In
+                some cases, your route registration may even be up to 100x faster! To generate a route cache, just execute the <code>route:cache</code> Artisan command:</p>
+            <pre><code>php artisan route:cache
+</code></pre>
+            <p>没错，就是这么简单！你的路由缓存文件将会替代原有的路由文件 <code>app/Http/routes.php</code> 而被使用。请牢记，如果你增加了新的路由，那么你必须重新生成一个新的路由缓存。正因如此，在项目部署的时候才运行生成缓存的命令 <code>route:cache</code> 显得更加的明智。</p>
+            <p>如果你想在不再生成新的路由缓存的情况下删除路由缓存的话，直接执行 <code>route:clear</code> 命令：</p>
+            <pre><code>php artisan route:clear
+</code></pre>
+
+        </article>
+    </div>
+
+
+    <footer class="main">
+        <ul>
+            <li class="nav-docs"><a href="http://www.golaravel.com/laravel/docs/">中文文档</a>
+            </li>
+            <li class="nav-community"><a href="http://wenda.golaravel.com" target="_blank">问答社区</a>
+            </li>
+            <li class="nav-api"><a href="http://laravel.com/api/5.0/" target="_blank">API</a>
+            </li>
+            <li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">视频教程（国外）</a>
+            </li>
+            <li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a>
+            </li>
+
+        </ul>
+        <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
+        <p class="less-significant"><a href="http://jackmcdade.com" target="_blank">Design by Jack McDade</a>
+        </p>
+    </footer>
+
+    <script src="../../assets/js/laravel.js"></script>
+    <script src="../../assets/js/viewport-units-buggyfill.js"></script>
+    <script>
+        window.viewportUnitsBuggyfill.init();
+    </script>
+    <script type="text/javascript">
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc8d13872a523d9c286aa7affbe0921f1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</body>
+
+</html>
