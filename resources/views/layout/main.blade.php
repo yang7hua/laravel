@@ -3,10 +3,10 @@
 		<div class="top">
 			<div class="container">
 				<ul>
-					<li><a href="/" class="current">首页</a></li>
+					<li><a href="/" class="current">@lang('links.home')</a></li>
 				</ul>
 				<ul class="right">
-					<li><a href="/login">登录</a></li>
+					<li><a href="/login">@lang('links.login')</a></li>
 				</ul>
 			</div>
 		</div>	

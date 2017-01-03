@@ -12,7 +12,7 @@
 */
 
 //home
-Route::group(['namespace'=>'Home'], function(){
+Route::group(['namespace'=>'Home', 'middleware'=>'home'], function(){
 	Route::get('/', ['as'=>'home', 'uses'=>'IndexController@index']);
 	Route::get('/{id}', ['as'=>'detail', 'uses'=>'BlogController@detail'])->where('id', '\d+');
 	Route::match(['get', 'post'], '/login', ['as'=>'login', 'uses'=>'UserController@login']);
