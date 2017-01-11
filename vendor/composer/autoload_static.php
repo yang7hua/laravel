@@ -20,6 +20,8 @@ class ComposerStaticInite076afe45cb086ab2da8c82077e278c9
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '5e8fe2a5ffaded85af682684fe3bbf5a' => __DIR__ . '/..' . '/mews/captcha/src/helpers.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'b4e3f29b106af37a2bb239f73cdf68c7' => __DIR__ . '/../..' . '/app/helpers.php',
+        '637b4973de3511c755b488687d5d874f' => __DIR__ . '/../..' . '/app/site.php',
     );
 
     public static $prefixLengthsPsr4 = array (

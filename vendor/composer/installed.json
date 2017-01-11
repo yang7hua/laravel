@@ -3664,7 +3664,6 @@
         "installation-source": "source",
         "autoload": {
             "files": [
-                "saetv2.ex.class.php"
             ]
         },
         "notification-url": "https://packagist.org/downloads/",

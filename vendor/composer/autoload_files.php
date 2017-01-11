@@ -19,6 +19,6 @@ return array(
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     '5e8fe2a5ffaded85af682684fe3bbf5a' => $vendorDir . '/mews/captcha/src/helpers.php',
     '37a3dc5111fe8f707ab4c132ef1dbc62' => $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
-    'f9ee9b3b37b76a895bac7ba3464e2de5' => $vendorDir . '/xiaosier/libweibo/saetv2.ex.class.php',
     'b4e3f29b106af37a2bb239f73cdf68c7' => $baseDir . '/app/helpers.php',
+    '637b4973de3511c755b488687d5d874f' => $baseDir . '/app/site.php',
 );

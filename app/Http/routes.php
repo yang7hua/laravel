@@ -26,9 +26,12 @@ Route::group(['prefix'=>'xadmin', 'middleware'=>'admin', 'namespace'=>'Admin'], 
 	Route::get('/logout', 'IndexController@logout');
 	Route::match(['get', 'post'], '/login', ['as'=>'admin.login', 'uses'=>'IndexController@login']);
 
+	Route::controller('sys', 'SysController');
+
 	Route::resource('auth', 'AuthController');
 	Route::resource('xadmin', 'XadminController');
 	Route::resource('blog', 'BlogController');
+	Route::resource('blogcategory', 'BlogCategoryController');
 });
 
 //public

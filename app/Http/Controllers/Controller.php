@@ -15,4 +15,13 @@ abstract class Controller extends BaseController
 	{
 		return \App\Lib\Func::mkpwd($password);
 	}
+
+	protected function ajaxReturn($data)
+	{
+		return response()->json(array(
+			'status' => 1,
+			'data' => $data
+		));
+	}
+
 }

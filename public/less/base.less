@@ -84,6 +84,7 @@ ul{
 	height:32px;
 	line-height:20px;
 	min-width:100px;
+	outline:none;
 }
 .btn-primary{
 	background:@color-main;
@@ -414,4 +415,9 @@ a[ajax="true"]{
 		background:#fff !important;
 		border:none !important;
 	}
+}
+
+.list-group-item:first-child,
+.list-group-item:last-child{
+	border-radius:0;
 }

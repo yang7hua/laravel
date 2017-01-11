@@ -16,4 +16,5 @@ class BlogCategory extends Model
 		$ins->count++;
 		return $ins->save();
 	}
+
 }

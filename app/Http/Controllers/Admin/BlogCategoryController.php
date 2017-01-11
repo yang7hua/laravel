@@ -7,13 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class XadminController extends Controller
-{
-	protected function url($url)
-	{
-		return '/xadmin/'.trim($url, '/');
-	}
+use App\Blog;
 
+class BlogCategoryController extends XadminController
+{
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +18,13 @@ class XadminController extends Controller
      */
     public function index()
     {
-        //
+		$list = array();
+		return $this->ajaxReturn(view('admin.blog.category.list', array(
+			'list' => $list,
+			'url' => array(
+				'add' => $this->url('blogcategory/create')
+			)
+		))->render());
     }
 
     /**
@@ -31,7 +34,7 @@ class XadminController extends Controller
      */
     public function create()
     {
-        //
+		return $this->ajaxReturn(view('admin.blog.category.create')->render());
     }
 
     /**

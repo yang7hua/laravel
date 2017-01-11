@@ -5,15 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Input, Validator, Captcha, DB;
 use Session;
 
-class IndexController extends Controller
+class IndexController extends XadminController
 {
+
     public function dashboard()
     {
-        //
 		return view('admin.index');
     }
 
