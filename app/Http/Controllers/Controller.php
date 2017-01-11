@@ -13,6 +13,6 @@ abstract class Controller extends BaseController
 
 	protected function mkpwd($password)
 	{
-		return md5(md5($password));
+		return \App\Lib\Func::mkpwd($password);
 	}
 }

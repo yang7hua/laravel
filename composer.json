@@ -11,8 +11,7 @@
         "mews/captcha": "^2.1",
         "guzzlehttp/guzzle": "^6.2",
         "php-curl-class/php-curl-class": "^4.11",
-        "simple-html-dom/simple-html-dom": "^1.5",
-        "xiaosier/libweibo": "dev-master"
+        "simple-html-dom/simple-html-dom": "^1.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

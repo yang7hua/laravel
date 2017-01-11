@@ -1,3 +1,31 @@
+//color
+@blue:#0478F3;
+@dark-blue:#0766C6;
+@orange:#da542e;
+@black:black;
+@green:#1b5e20;
+@white:white;
+@light-green:#33691E;
+@dark-gray:#303030;
+@light-gray:#afafaf;
+@brown:#3e2723;
+
+@color-main:#311B92;
+
+//box
+@box-margin:10px;
+@box-spacing:25px;
+@box-spacing-low:15px;
+
+//site
+@header-height:40px;
+@content-width:1080px;
+@nav-height:35px;
+
+//user
+@user-nav-height:50px;
+@user-content-width:1080px;
+
 html,body,h1,h2,h3,h4,h5,p,ul,li,a,i{margin:0;padding:0; font-size:12px; font-weight:normal;}
 body{
 	font-size:12px;
@@ -6,38 +34,12 @@ ul{
 	list-style:none;
 	padding:0;
 }
-a:hover{
-	text-decoration:none;
-}
 .cursor-pointer{
 	cursor:pointer;
 }
 .clear{
 	clear:both;
 }
-
-//color
-@blue:#0478F3;
-@dark-blue:#0766C6;
-@orange:#da542e;
-@black:black;
-@green:green;
-@white:white;
-@light-green:#80bd01;
-@dark-gray:#303030;
-@light-gray:#afafaf;
-
-//box
-@box-spacing:25px;
-@box-spacing-low:15px;
-
-//site
-@content-width:1080px;
-@nav-height:35px;
-
-//user
-@user-nav-height:50px;
-@user-content-width:1080px;
 
 .panel{
 	border-radius:2px;
@@ -84,7 +86,7 @@ a:hover{
 	min-width:100px;
 }
 .btn-primary{
-	background:#008cd7;
+	background:@color-main;
 }
 .btn-primary:hover{
 	background:#357ebd;

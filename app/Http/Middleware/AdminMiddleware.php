@@ -15,8 +15,8 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-		if (!$request->session()->has('xainfo') and \Route::current()->getName() != 'admin.login')
-			return redirect()->route('admin.login');
+		//if (!$request->session()->has('xainfo') and \Route::current()->getName() != 'admin.login')
+		//	return redirect()->route('admin.login');
         return $next($request);
     }
 }
