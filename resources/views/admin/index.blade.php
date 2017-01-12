@@ -1,5 +1,5 @@
 @extends('layout.admin')
-@section('title', '控制台')
+@section('title', '设置')
 @section('content')
 
 @endsection

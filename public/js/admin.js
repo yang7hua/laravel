@@ -6,13 +6,19 @@ var util = {
 var sys = {
 	//加载左侧菜单
 	load_menu : function() {
-		var _o = $("#menu .list-group");
+		var _o = $("#dashboard-left .menubox");
 		$.get(util.url('sys/menus'), function(res) {
 			if (res.status < 1) {
 				return;
 			}
 			$.each(res.data, function(k, row){
-				_o.append('<a href="#" menu-link="'+row.link+'" class="list-group-item">'+row.text+'</a>');
+				var html = '<a href="'+row.link+'" class="menu">';
+				if (row.module == _MODULE_NAME) {
+					html = '<a href="'+row.link+'" class="menu on">';
+					//$("#dashboard-top-title").text(row.text);
+				}
+				html += '<span class="glyphicon glyphicon-'+row.icon+'"></span>'+row.text+'</a>';
+				_o.append(html);
 			});
 		});
 	},

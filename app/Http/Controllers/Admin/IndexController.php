@@ -13,7 +13,9 @@ class IndexController extends XadminController
 
     public function dashboard()
     {
-		return view('admin.index');
+		return view('admin.index', array(
+			'_module_name' => 'index',
+		));
     }
 
 	public function login(Request $request)

@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Blog;
 
-class BlogController extends Controller
+class BlogController extends XadminController
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,11 @@ class BlogController extends Controller
      */
     public function index()
     {
-		$list = Blog::newlist();
-		return view('admin.blog.list');
+		return view('admin.blog.index', array(
+			'_module_name' => 'blog',
+			'_action_name' => 'index',
+			'links' => $this->menus('blog')
+		));
     }
 
     /**
