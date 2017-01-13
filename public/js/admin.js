@@ -22,11 +22,56 @@ var sys = {
 			});
 		});
 	},
+	//点击菜单加载页面
 	load_page : function(url) {
 		var _o = $("#page");
 		$.get(url, function(res) {
 			_o.html(res.data);
 		});
+	},
+
+	//分页加载
+	page : {
+		target : null,
+		init : function() {
+			this.target = $("[page-url]");
+			var $this = this;
+			$.each(this.target, function(a, b){
+				var _target = $($(b).attr("page-target")); 
+				_target.delegate(".pagination li a", "click", function(){
+					var href = $(this).attr("href");
+					var match = href.match(/page=(\d+)/);
+					var page = match[1];
+					_target.attr("page-page", page);
+					$this.load(_target);
+					return false;
+				});
+			});
+			return this;
+		},
+		load : function(target) {
+			if (target == undefined)
+				target = this.target;
+			$.each(target, function(a, b){
+				var _o = $(b);
+				var _url = _o.attr("page-url");
+				var _target = $(_o.attr("page-target")); 
+				var _page = _o.attr("page-page");
+				$.ajax({
+					url : _url,
+					type : "get",
+					dataType : "json",
+					data : {
+						page : _page
+					},
+					success : function(res) {
+						if (res.status < 1)
+							return;
+						_target.html(res.data);
+					}
+				});
+			})
+		}
 	}
 };
 
@@ -37,4 +82,6 @@ $(function(){
 		sys.load_page(href);
 		return false;
 	});
+
+	sys.page.init().load();
 });

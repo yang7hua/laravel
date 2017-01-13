@@ -17,4 +17,19 @@ class BlogCategory extends Model
 		return $ins->save();
 	}
 
+	static function tree()
+	{
+		$list = self::query()->orderBy('pid', 'asc')->get()->toArray();
+		$tree = array();
+		foreach ($list as $row) {
+			if ($row['pid'] < 1) {
+				$row['children'] = array();
+				$tree[$row['id']] = $row;
+				continue;
+			}
+			$tree[$row['pid']]['children'][] = $row;
+		}
+		return $tree;
+	}
+
 }
