@@ -20,15 +20,23 @@ class Tag extends Model
 		if (is_string($tags)) {
 			$tags = array($tags);
 		}
+		$flag = true;
 		foreach ($tags as $tag) {
 			$tag_id = TagData::findIDByName($tag, true);
 			if (!$tag_id)
 				continue;
 			if (self::exist($tag_id, $blog_id))
 				continue;
-			self::newrow($tag_id, $blog_id);
-			TagData::inc($tag_id);
+			if (!self::newrow($tag_id, $blog_id)) {
+				$flag = false;
+				break;
+			}
+			if (!TagData::inc($tag_id)) {
+				$flag = false;
+				break;
+			}
 		}
+		return $flag;
 	}
 
 	static function exist($tag_id, $blog_id)

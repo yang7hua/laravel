@@ -53,6 +53,18 @@ class Blog extends Model
 
 	static function format($blogs)
 	{
+		$cids = array();
+		foreach ($blogs as $row) {
+			if (in_array($row->cid, $cids))
+				continue;
+			$cids[] = $row->cid;
+		}
+		$clist = (new BlogCategory)->whereIn('id', $cids)->get();
+		$cnames = array();
+		foreach ($clist as $row) {
+			$cnames[$row->id] = $row['name'];
+		}
+
 		foreach ($blogs as &$blog) {
 			$blog->url = self::url($blog);
 			//$blog->summary = self::summary($blog);
@@ -62,8 +74,14 @@ class Blog extends Model
 			} else {
 				$blog->cover = '';
 			}
+			$blog->cname = $cnames[$blog->cid];
 		}
 		return $blogs;
+	}
+
+	static function formatOne($blog)
+	{
+		return self::format(array($blog))[0];
 	}
 
 	static function keyexist($key)

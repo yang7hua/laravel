@@ -1,5 +1,7 @@
 <script type="text/javascript" src="/js/lib/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+<script>SyntaxHighlighter.all();</script>
 <!--
 <script type="text/javascript" src="/js/lib/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/js/lib/messages_zh.js"></script>

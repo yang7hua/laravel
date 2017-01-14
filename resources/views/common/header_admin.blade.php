@@ -4,11 +4,16 @@
 <title>@yield('title') - 控制台</title>
 <link rel="stylesheet" type="text/css" href="/css/admin.css">
 <script type="text/javascript" src="/js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
 <script>
 var _MODULE_NAME = '{{$_module_name}}';
 </script>
 </head>
 <body class="admin">
+<div id="tooltip" class="tooltip top" role="tooltip">
+	<div class="tooltip-arrow"></div>
+	<div class="tooltip-inner">Hello</div>
+</div>
 <div class="container-fluid">
 	<div class="row">
 		<div id="dashboard-left">

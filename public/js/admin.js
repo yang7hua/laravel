@@ -1,14 +1,41 @@
 var util = {
+
 	url : function(url) {
 		return '/xadmin/'+url;
 	},
+
+	//demo: util.tooltip("[name=cid]");
+	tooltip : function(o, title, hide) {
+		var option = {
+			placement:'bottom',
+			trigger : 'click'
+		};
+		if (title)
+			$(o).attr("title", title);
+		if (hide)
+			$(o).tooltip('show');
+		else
+			$(o).tooltip(option).tooltip('show');
+	},
+
+	//消息通知
+	msg : {
+		success : function(msg) {
+			alert(msg);
+		},
+
+		error : function(msg) {
+			alert(msg);
+		}
+	}
+
 };
 var sys = {
 	//加载左侧菜单
 	load_menu : function() {
 		var _o = $("#dashboard-left .menubox");
 		$.get(util.url('sys/menus'), function(res) {
-			if (res.status < 1) {
+			if (res.status > 0) {
 				return;
 			}
 			$.each(res.data, function(k, row){
@@ -65,7 +92,7 @@ var sys = {
 						page : _page
 					},
 					success : function(res) {
-						if (res.status < 1)
+						if (res.status > 0)
 							return;
 						_target.html(res.data);
 					}
@@ -83,5 +110,37 @@ $(function(){
 		return false;
 	});
 
+	//加载列表
 	sys.page.init().load();
+
+
+	//表单焦点的时候隐藏错误提示
+	$("body").delegate("form input", "focus", function(){
+		util.tooltip($(this), null, true);
+	});
+	//绑定表单提交
+	$("body").delegate("[submit]", "click", function(){
+		var _formname = $(this).attr("submit");
+		var _form = $("form[name="+_formname+"]");
+		var data = _form.serialize();
+		$.ajax({
+			url : _form.attr("action"),
+			type : "post",
+			dataType : "json",
+			data : data,
+			success : function(res) {
+				if (res.status > 0) {
+					$.each(res.data, function(k,v){
+						for (var i in v) {
+							util.tooltip("[name="+k+"]", v);
+						}
+					});
+					return;
+				}
+				util.msg.success(res.msg);
+				location.reload();
+			}
+		});
+		return false;
+	})
 });

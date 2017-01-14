@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Input, Validator, Captcha, DB;
 use App\Http\Controllers\Controller;
 
 use App\Blog;
@@ -62,6 +63,57 @@ class BlogController extends XadminController
     public function store(Request $request)
     {
         //
+		$rules = [
+			'title' => 'required',
+			'cid' => 'required|numeric',
+			'content' => 'required',
+			'tag' => 'regex:/^[^~!@#$%^&\*()]*$/'
+		];
+		$messages = [
+			'title.required' => '请输入标题',
+			'content.required' => '请输入内容',
+			'cid.required' => '请选择分类',
+			'cid.numeric' => '分类格式不正确',
+			'tag.regex' => '标签格式不正确',
+		];
+		$validator = Validator::make(Input::all(), $rules, $messages);
+		if ($validator->fails()) {
+			return $this->error('失败', $validator->errors());
+		}
+
+		DB::beginTransaction();
+		$flag = true;
+
+		$Blog = new Blog();
+		$Blog->title = $request->input('title');
+		$Blog->content = htmlspecialchars($request->input('content'));
+		$Blog->cid = $request->input('cid');
+		$tags = trim($request->input('tag'));
+		$tags = str_replace(' ', '#', $tags);
+		$Blog->tags = $tags;
+		$Blog->posttime = time();
+
+		$id = $Blog->save();
+		if (!$id) {
+			$flag = false;
+		} else {
+			$tags = explode('#', $tags);
+			if (!empty($tags)) {
+				if (!(new \App\Tag)->updateTag($id, $tags))
+					$flag = false;
+			}
+			if ($flag) {
+				if (!\App\BlogCategory::incCount($Blog->cid))
+					$falg = false;
+			}
+		}
+
+		if ($flag) {
+			DB::commit();
+			return $this->success('操作成功');
+		}
+		DB::rollback();
+		return $this->error('操作失败');
     }
 
     /**

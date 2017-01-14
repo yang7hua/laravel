@@ -1,5 +1,6 @@
 @import "../css/lib/bootstrap.min.css";
 @import "../css/lib/bootstrap-datetimepicker.min.css";
+@import "../ueditor/third-party/SyntaxHighlighter/shCoreDefault.css";
 html,
 body,
 h1,
@@ -73,7 +74,7 @@ ul {
   background: #311B92;
 }
 .btn-primary:hover {
-  background: #357ebd;
+  background: #da542e;
 }
 .btn-disabled,
 .btn-disabled:hover {
@@ -512,7 +513,7 @@ a {
 }
 [page=detail] {
   position: relative;
-  top: 50px;
+  top: 60px;
 }
 [page=detail] h1 {
   font-size: 20px;

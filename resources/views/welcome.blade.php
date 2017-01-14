@@ -13,7 +13,12 @@
 					{{$row->summary}}
 					</div>
 					<p class="info">
+					@if ($row->cname)
+						<a href="/c/{{$row->cid}}">{{$row->cname}}</a>
+					@endif
+					@if ($row->fid)
 						<a href="/f/{{$row->fid}}">{{$blog_from[$row->fid]->name}}</a>
+					@endif
 						&nbsp;&nbsp;<span>{{date('n/j H:i', $row->posttime)}}</span>
 					</p>
 				</div>

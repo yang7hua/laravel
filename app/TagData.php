@@ -13,6 +13,7 @@ class TagData extends Model
 
 	static function findIDByName($name, $insert = false)
 	{
+		$name = strtolower($name);
 		$info = self::query()->where('name', '=', $name)->first();
 		if (empty($info)) {
 			if ($insert)

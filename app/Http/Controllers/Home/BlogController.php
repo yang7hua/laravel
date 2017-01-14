@@ -11,8 +11,8 @@ class BlogController extends Controller
 {
 	public function detail($id)
 	{
-		$detail = \App\Blog::format(array(\App\Blog::detail($id)))[0];
-		$detail->from = \App\BlogFrom::map()[$detail->fid];
+		$detail = \App\Blog::formatOne(\App\Blog::detail($id));
+		$detail->from = $detail->fid ? \App\BlogFrom::map()[$detail->fid] : '';
 		return view('blog.detail', array(
 			'detail' => $detail,
 		));
