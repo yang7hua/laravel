@@ -537,12 +537,11 @@ a {
   border-bottom: none;
 }
 [page=detail] {
-  margin-top: 60px;
+  margin-top: 90px;
 }
 [page=detail] h1 {
   font-size: 20px;
   margin-bottom: 30px;
-  margin-top: 10px;
 }
 [page=detail] .blog-info {
   border-bottom: 1px solid #f1f1f1;
