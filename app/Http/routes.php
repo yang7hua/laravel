@@ -22,6 +22,8 @@ Route::group(['namespace'=>'Home', 'middleware'=>'home'], function(){
 	Route::get('/logout', ['as'=>'logout', 'uses'=>'UserController@logout']);
 
 	Route::resource('comment', 'CommentController');
+	Route::get('/comment/{id}/{type}', ['uses'=>'CommentController@todo'])->where('id', '\d+')
+			->where('type', '\w+');
 });
 
 //xadmin

@@ -115,11 +115,12 @@ var util = {
 			trigger : 'click'
 		};
 		if (title)
-			$(o).attr("title", title).attr("data-original-title", title);
-		if (hide)
-			$(o).tooltip('show');
-		else
+			$(o).attr("data-original-title", title);
+		if (hide) {
+			$(o).attr("data-original-title", "").tooltip('hide');
+		} else {
 			$(o).tooltip(option).tooltip('show');
+		}
 	},
 
 	msg : {
@@ -133,6 +134,8 @@ var util = {
 	}
 };
 
+//submit functions of elements that has attribute submit
+//<button type="submit" submit="form name" submit-ok="function name" submit-ok-param="some params"></button>
 var submit = {
 	//reload comment list for detail
 	comment_reload: function(id) {
@@ -140,8 +143,37 @@ var submit = {
 			console.log(res);
 		});
 	},
+
+	//append the comment to comment list after somebody comment the blog
 	comment_append: function(data) {
 		$("#comments").append(data);
+		$("#comment-publish [name=pid]").val(0);
+	}
+};
+
+//functions of elements that has attribute func
+//<element func="function name" func-param="arguments for function"></element>
+var func = {
+	//reply of detail's comment
+	comment_reply : function(comment_id) {
+		var _comment = $("[comment-id="+comment_id+"]");
+		var _uname = _comment.find(".comment-uname").text();
+		var _content = _comment.find(".comment-content").html();
+		var content = "<blockquote><quote>Refer to "+_uname+"'s comment:</quote>"+_content+"</blockquote>";
+		$("#comment-publish [name=content]").val(content).focus();
+		$("#comment-publish [name=pid]").val(comment_id);
+	},
+
+	//approve detail's comment
+	comment_approve : function(comment_id) {
+		$.get('/comment/'+comment_id+'/approve', function(res){
+			if (res.status > 0)
+				return util.msg.error(res.msg);
+			var _o = $("[comment-id="+comment_id+"] .comment-approve");
+			var _old = parseInt(_o.text());
+			_old += 1;
+			_o.text(_old);
+		});	
 	}
 };
 
@@ -252,6 +284,12 @@ $(function(){
 		});
 	}
 
+	//delete tooltip for input
+	$("body").delegate("input,textarea", "focus", function(){
+		util.tooltip($(this), null, true);
+	});
+
+	//bind event for element that has attribute submit
 	$("body").delegate("[submit]", "click", function(){
 		var _this = $(this);
 		var _formname = $(this).attr("submit");
@@ -267,9 +305,9 @@ $(function(){
 			data : data,
 			success : function(res) {
 				if (res.status > 0) {
-					if (res.msg.length > 0)
+					if (res.msg)
 						util.msg.error(res.msg);
-					if (res.data.length > 0) {
+					if (res.data) {
 						$.each(res.data, function(k,v){
 							for (var i in v) {
 								util.tooltip("[name="+k+"]", v);
@@ -294,5 +332,16 @@ $(function(){
 		});
 		return false;
 	})
+
+	//bind elements's attr func
+	$("body").delegate("[func]", "click", function(){
+		var _this = $(this);
+		var _func = _this.attr("func");
+		var _func_param = _this.attr("func-param");
+		if (typeof func[_func] == "function") {
+			func[_func](_func_param);
+		}
+		return false;
+	});
 
 });

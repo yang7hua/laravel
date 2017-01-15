@@ -21,10 +21,17 @@ class CommentController extends Controller
 		$bid = $request->input('bid');
 		if ($bid)
 			$list = \App\Comment::findByBid($bid);
+		else
+			$list = (new \App\Comment)->orderBy('id', 'desc')->paginate(20);
 
-		return $this->ajaxReturn(view('comment.tpl.list', array(
-			'comments' => $list,
-		))->render());
+		if ($request->ajax()) {
+			return $this->ajaxReturn(view('comment.tpl.list', array(
+							'comments' => $list,
+							))->render());
+		}
+		return view('comment.list', array(
+			'comments' => $list
+		));
     }
 
     /**
@@ -61,7 +68,7 @@ class CommentController extends Controller
 		];
 		$validator = Validator::make(Input::all(), $rules, $messages);
 		if ($validator->fails()) {
-			return $this->error('fail', $validator->errors());
+			return $this->error(null, $validator->errors());
 		}
 
 		//控制评论频率
@@ -81,8 +88,9 @@ class CommentController extends Controller
 			$Comment->pid = $request->input('pid');
 		$Comment->uname = $request->input('name');
 		$Comment->email = $request->input('email');
-		$Comment->content = strip_tags($request->input('content'), 'script');
+		$Comment->content = strip_tags($request->input('content'), '<blockquote><quote>');
 		$Comment->ip = ip2long($request->getClientIp());
+		$Comment->approve = 0;
 
 		DB::beginTransaction();
 		$flag = true;
@@ -90,6 +98,13 @@ class CommentController extends Controller
 		if ($Comment->save()) {
 			if (!\App\Blog::incComment($Comment->bid))
 				$flag = false;
+			else {
+				if ($Comment->pid > 0) {
+					//todo send email to pid's email
+
+					//todo add score
+				}
+			}
 		} else {
 			$flag = false;
 		}
@@ -145,6 +160,15 @@ class CommentController extends Controller
     {
         //
     }
+
+	public function todo($id, $type)
+	{
+		if ($type == 'approve') {
+			if (\App\Comment::incApprove($id))
+				return $this->success();
+			return $this->error('try later');
+		}
+	}
 
     /**
      * Remove the specified resource from storage.

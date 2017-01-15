@@ -24,7 +24,7 @@
 				</div>
 				<div class="blog-moreinfo">
 				@if ($detail->furl)
-					原文&nbsp;<a target="_blank" href="{{$detail->furl}}">{{$detail->furl}}</a>
+					@lang('label.comefrom')&nbsp;<a target="_blank" href="{{$detail->furl}}">{{$detail->furl}}</a>
 				@endif
 				</div>
 			</div>
@@ -36,49 +36,49 @@
 
 		<div class="row">
 			<div class="col-lg-8" id="comments">
-				<h2>Comments ({{$detail->comment_count}})</h2>	
+				<h2>@lang('label.comments') ({{$detail->comment_count}})</h2>	
 				@include('comment.tpl.list')
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-lg-8" id="comment-publish">
-				<h2>Post Your Comment</h2>
+				<h2>@lang('label.post comment')</h2>
 
 				<form role="form" class="form-horizontal" name="comment-publish" type="post" action="{{url('comment')}}">
 					<input type="hidden" name="_token" value="{{csrf_token()}}"/>
 					<input type="hidden" name="id" value="{{$detail->id}}"/>
 					<input type="hidden" name="pid" value="0"/>
 					<div class="form-group">
-						<label class="col-lg-2 control-label" for="title">Content</label>
-						<div class="col-lg-8">
-						<textarea data-toggle="tooltip" data-placement="right" title="" type="text" name="content" class="form-control" placeholder="Enter Content"></textarea>
+						<label class="col-lg-2 control-label" for="title"><span>*</span> @lang('label.content')</label>
+						<div class="col-lg-9">
+						<textarea data-toggle="tooltip" data-placement="bottom" title="" type="text" name="content" class="form-control" placeholder="Enter Content"></textarea>
 						</div>
 					</div>
 					<br/>
 					<div class="form-group">
-						<label class="col-lg-2 control-label" for="title">Your Name</label>
+						<label class="col-lg-2 control-label" for="title"><span>*</span> @lang('label.your name')</label>
 						<div class="col-lg-5">
-						<input data-toggle="tooltip" data-placement="right" title="" type="text" name="name" class="form-control" placeholder="Enter your name">
+						<input data-toggle="tooltip" data-placement="bottom" title="" type="text" name="name" class="form-control" placeholder="Enter your name">
 						</div>
 					</div>
 					<br/>
 					<div class="form-group">
-						<label class="col-lg-2 control-label" for="title">Your Email</label>
+						<label class="col-lg-2 control-label" for="title"> @lang('label.your email')</label>
 						<div class="col-lg-10">
 						<div class="row">
 						<div class="col-lg-6">
-						<input data-toggle="tooltip" data-placement="right" title="" type="email" name="email" class="form-control" placeholder="Enter your email">
+						<input data-toggle="tooltip" data-placement="bottom" title="" type="email" name="email" class="form-control" placeholder="Enter your email">
 						</div>
 						</div>
-						<span class="help-block">You will receive a email when somebody else reply your comment.</span>
+						<span class="help-block hide">@lang('label.your email tip')</span>
 						</div>
 					</div>
 					<br/>
 					<div class="form-group">
 						<div class="col-lg-2"></div>
 						<div class="col-lg-5">
-						<button submit="comment-publish" submit-ok="comment_append" type="submit" class="btn btn-primary">Post Your Comment</button>
+						<button submit="comment-publish" submit-ok="comment_append" type="submit" class="btn btn-primary">@lang('label.post your comment')</button>
 						</div>
 					</div>
 				</form>

@@ -59,9 +59,16 @@ a{
 	}
 }
 
+#footer{
+	margin-top:100px;
+	padding:20px 0;
+	background:@black;
+	color:#aaa;
+	p{text-align:center;}
+}
+
 [page=welcome] {
-	position:relative;
-	top:@header-height+50;
+	margin-top:@header-height+50;
 	h1{
 		font-size:14px;
 		border-bottom:1px solid #f1f1f1;
@@ -91,10 +98,12 @@ a{
 			}
 		}
 	}
+	.list:last-child{
+		border-bottom:none;
+	}
 }
 [page=detail] {
-	position:relative;
-	top:@header-height+20;
+	margin-top:@header-height+20;
 	h1{
 		font-size:20px;
 		margin-bottom:30px;

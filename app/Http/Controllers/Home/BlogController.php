@@ -13,9 +13,17 @@ class BlogController extends Controller
 	{
 		$detail = \App\Blog::formatOne(\App\Blog::detail($id));
 		$detail->from = $detail->fid ? \App\BlogFrom::map()[$detail->fid] : '';
+
+		$similar = \App\Blog::where('cid', $detail->cid)
+			->where('id', '!=', $detail->id)
+			->orderBy('id', 'desc')
+			->take(10)->get();
 		return view('blog.detail', array(
 			'detail' => $detail,
-			'comments' => \App\Comment::findByBid($id)
+			//相关评论 
+			'comments' => \App\Comment::findByBid($id),
+			//同分类下的博文
+			'similar' => \App\Blog::format($similar)
 		));
 	}
 

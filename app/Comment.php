@@ -26,4 +26,19 @@ class Comment extends Model
 	{
 		return self::where('bid', $bid)->orderBy('id', 'asc')->get();
 	}
+
+	static function format($list)
+	{
+		foreach ($list as &$row) {
+			$row->url = route('detail', ['id'=>$row->bid]).'#comment-'.$row->id;
+		}
+		return $list;
+	}
+
+	static function incApprove($id)
+	{
+		$ins = self::query()->find($id);
+		$ins->approve++;
+		return $ins->save();
+	}
 }

@@ -18,9 +18,14 @@ class IndexController extends Controller
     {
 		$newlist = \App\Blog::format(\App\Blog::newlist($p, 10));
 		$blog_from = \App\BlogFrom::map();
+
+		$newcomments = \App\Comment::orderBy('id', 'desc')
+				->take(10)->get();
+
 		return view('welcome', array(
 			'newlist' => $newlist,
-			'blog_from' => $blog_from
+			'blog_from' => $blog_from,
+			'comments' => \App\Comment::format($newcomments),
 		));
     }
 

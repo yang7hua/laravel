@@ -115,7 +115,7 @@ $(function(){
 
 
 	//表单焦点的时候隐藏错误提示
-	$("body").delegate("form input", "focus", function(){
+	$("body").delegate("form input, form textarea", "focus", function(){
 		util.tooltip($(this), null, true);
 	});
 	//绑定表单提交

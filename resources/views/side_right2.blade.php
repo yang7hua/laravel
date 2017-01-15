@@ -1,6 +1,14 @@
 <!--with same cateogry's blog-->
 <div class="box">
-	<h5>编程语言<a>更多</a></h5>
+	<h5>{{$detail->cname}}<a href="{{$detail->curl}}">more+</a></h5>
+	<ul>
+	@foreach ($similar as $row)
+		<li><a href="{{$row->url}}">{{$row->title}}</a></li>
+	@endforeach
+	</ul>
+</div>
+<div class="box">
+	<h5>编程语言<a>more+</a></h5>
 	<ul>
 		<li><a>PHP抽象类</a></li>
 		<li><a>PHP MSSQL 分页实例(刷新)</a></li>

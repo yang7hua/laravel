@@ -11,6 +11,9 @@
 					@if ($row->fid)
 						<a href="/f/{{$row->fid}}">{{$blog_from[$row->fid]->name}}</a>
 					@endif
+					@if ($row->comment_count)
+						&nbsp;&nbsp;<a href="{{$row->url}}#comments">comment ({{$row->comment_count}})</a>
+					@endif
 						&nbsp;&nbsp;<span>{{date('n/j H:i', $row->posttime)}}</span>
 					</p>
 				</div>

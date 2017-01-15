@@ -21,7 +21,7 @@ class BlogController extends XadminController
     public function index(Request $request)
     {
 		if ($request->ajax()) {
-			$list = (new Blog)->orderBy('addtime', 'desc')
+			$list = (new Blog)->orderBy('id', 'desc')
 				->paginate(12);
 			return $this->ajaxReturn(view('admin.blog.list', array(
 				'list' => \App\Blog::format($list),

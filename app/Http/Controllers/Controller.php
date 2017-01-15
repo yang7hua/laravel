@@ -25,12 +25,12 @@ abstract class Controller extends BaseController
 		));
 	}
 
-	protected function error($msg, $data = array(), $no = 1)
+	protected function error($msg = '', $data = array(), $no = 1)
 	{
 		return $this->ajaxReturn($data, $msg, $no);
 	}
 
-	protected function success($msg, $data = array(), $no = 0)
+	protected function success($msg = '', $data = array(), $no = 0)
 	{
 		return $this->ajaxReturn($data, $msg, $no);
 	}
