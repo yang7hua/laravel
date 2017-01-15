@@ -6,23 +6,7 @@
 		<div class="row">
 			<div class="col-lg-8 col-md-8">	
 				<h1>最新</h1>
-				@foreach ($newlist as $row)
-				<div class="list">
-					<a class="title" href="{{$row->url}}">{{$row->title}}</a>
-					<div class="summary">
-					{{$row->summary}}
-					</div>
-					<p class="info">
-					@if ($row->cname)
-						<a href="/c/{{$row->cid}}">{{$row->cname}}</a>
-					@endif
-					@if ($row->fid)
-						<a href="/f/{{$row->fid}}">{{$blog_from[$row->fid]->name}}</a>
-					@endif
-						&nbsp;&nbsp;<span>{{date('n/j H:i', $row->posttime)}}</span>
-					</p>
-				</div>
-				@endforeach
+				@include('blog.tpl.list')	
 			</div>
 			<div class="col-lg-4 col-md-4">
 				@include('side_right')

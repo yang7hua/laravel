@@ -14,9 +14,9 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($p = 1)
     {
-		$newlist = \App\Blog::format(\App\Blog::newlist(1, 10));
+		$newlist = \App\Blog::format(\App\Blog::newlist($p, 10));
 		$blog_from = \App\BlogFrom::map();
 		return view('welcome', array(
 			'newlist' => $newlist,

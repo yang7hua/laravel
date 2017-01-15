@@ -83,8 +83,7 @@ ul {
 .btn[type="submit"],
 .btn[type="cancel"],
 .btn.btn-search {
-  letter-spacing: 8px;
-  padding-left: 20px;
+  /*letter-spacing:8px;*/
   font-size: 12px;
 }
 .form-control {
@@ -410,6 +409,19 @@ a[ajax="true"] {
 .list-group-item:first-child,
 .list-group-item:last-child {
   border-radius: 0;
+}
+.tooltip.right .tooltip-arrow {
+  border-right-color: #da542e;
+}
+.tooltip-inner {
+  white-space: nowrap;
+  background-color: #da542e;
+}
+.btn[type="submit"],
+.btn[type="cancel"],
+.btn.btn-search {
+  letter-spacing: 8px;
+  padding-left: 20px;
 }
 html,
 body,

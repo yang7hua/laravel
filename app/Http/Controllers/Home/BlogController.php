@@ -15,6 +15,12 @@ class BlogController extends Controller
 		$detail->from = $detail->fid ? \App\BlogFrom::map()[$detail->fid] : '';
 		return view('blog.detail', array(
 			'detail' => $detail,
+			'comments' => \App\Comment::findByBid($id)
 		));
+	}
+
+	public function listbycategory($cid)
+	{
+
 	}
 }

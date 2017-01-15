@@ -24,7 +24,7 @@ class BlogController extends XadminController
 			$list = (new Blog)->orderBy('addtime', 'desc')
 				->paginate(12);
 			return $this->ajaxReturn(view('admin.blog.list', array(
-				'list' => $list,
+				'list' => \App\Blog::format($list),
 			))->render());
 		}
 

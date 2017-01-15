@@ -7,7 +7,7 @@ var util = {
 	//demo: util.tooltip("[name=cid]");
 	tooltip : function(o, title, hide) {
 		var option = {
-			placement:'bottom',
+			//placement:'bottom',
 			trigger : 'click'
 		};
 		if (title)

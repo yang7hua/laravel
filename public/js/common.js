@@ -1,10 +1,12 @@
 var util = {
+
 	moreheigh : function(box, low) {
 		if (low)
 			box.attr("more-heigh", false);
 		else
 			box.attr("more-heigh", true);
 	},
+
 	shake : function(o) {
 			o.focus();
 			o.addClass('input-empty');
@@ -12,6 +14,7 @@ var util = {
 				o.removeClass('input-empty');
 			}, 500);
 	},
+	
 	reloadCaptcha : function(obj) {
 		var src = obj && obj.attr("src") || '/image/captcha';
 		src = src.split('?')[0];
@@ -21,6 +24,7 @@ var util = {
 		else
 			$(".captcha").attr("src", src);
 	},
+
 	bindEnter : function(o, callback) {
 		o.keydown(function(e){
 			if (e.keyCode == 13) {
@@ -103,8 +107,42 @@ var util = {
 				return array[i][key_value];
 		}
 		return "";
-	}
+	},
 
+	tooltip : function(o, title, hide) {
+		var option = {
+			//placement:'bottom',
+			trigger : 'click'
+		};
+		if (title)
+			$(o).attr("title", title).attr("data-original-title", title);
+		if (hide)
+			$(o).tooltip('show');
+		else
+			$(o).tooltip(option).tooltip('show');
+	},
+
+	msg : {
+		success : function(msg) {
+			alert(msg);
+		},
+
+		error : function(msg) {
+			alert(msg);
+		}
+	}
+};
+
+var submit = {
+	//reload comment list for detail
+	comment_reload: function(id) {
+		$.get('/comment/', {bid:id}, function(res){
+			console.log(res);
+		});
+	},
+	comment_append: function(data) {
+		$("#comments").append(data);
+	}
 };
 
 $(function(){
@@ -214,25 +252,47 @@ $(function(){
 		});
 	}
 
-	//ajax submit form
-	/*
-	$("[submit-type=ajax]").on("click", function(){
-		var btn = $(this);
-		var form = $(this).closest("form");
-		if (btn.hasClass("btn-disabled"))
-			return false;
-		var url = form.attr("action");
+	$("body").delegate("[submit]", "click", function(){
+		var _this = $(this);
+		var _formname = $(this).attr("submit");
+		var _form = $("form[name="+_formname+"]");
+		var _func = $(this).attr("submit-ok");
+		var _func_param = $(this).attr("submit-ok-param");
+
+		var data = _form.serialize();
 		$.ajax({
-			url : url,
+			url : _form.attr("action"),
 			type : "post",
 			dataType : "json",
-			data : form.serialize(),
+			data : data,
 			success : function(res) {
-				console.log(res);
+				if (res.status > 0) {
+					if (res.msg.length > 0)
+						util.msg.error(res.msg);
+					if (res.data.length > 0) {
+						$.each(res.data, function(k,v){
+							for (var i in v) {
+								util.tooltip("[name="+k+"]", v);
+							}
+						});
+					}
+					return;
+				}
+				//util.msg.success(res.msg);
+				if (_func == undefined) {
+					return _form[0].reset();
+				}
+
+				if (typeof submit[_func] == "function") {
+					if (_func_param == undefined)
+						_func_param = res.data;
+					submit[_func](_func_param);
+				}
+
+				return _form[0].reset();
 			}
 		});
 		return false;
 	})
-	*/
 
 });

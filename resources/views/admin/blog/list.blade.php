@@ -14,12 +14,12 @@
 	@foreach ($list as $row)
 	<tr>
 		<td>{{$row->id}}</td>
-		<td>{{$row->title}}</td>
-		<td>{{$row->cid}}</td>
-		<td>{{@date('y/m/d H:i', $row->addtime)}}</td>
-		<td>{{@date('y/m/d H:i', $row->posttime)}}</td>
-		<td>{{@date('y/m/d H:i', $row->uptime)}}</td>
-		<td>{{$row->status}}</td>
+		<td><a href="{{$row->url}}" target="_blank">{{$row->title}}</a></td>
+		<td>{{$row->cname}}</td>
+		<td>{{$row->addtime}}</td>
+		<td>{{@date('Y-m-d H:i:s', $row->posttime)}}</td>
+		<td>{{$row->uptime}}</td>
+		<td>{{$row->statusname}}</td>
 		<td>{{$row->is_ding ? '是' : '否'}}</td>
 		<td>{{$row->view_count}}</td>
 		<td>{{$row->comment_count}}</td>

@@ -2,6 +2,10 @@
 @import "../css/lib/bootstrap-datetimepicker.min.css";
 @import "base.less";
 @import "../ueditor/third-party/SyntaxHighlighter/shCoreDefault.css";
+/*fix syntax.highlighter*/
+.syntaxhighlighter td.code {
+	padding:9.5px 0 9.5px 9.5px!important;
+}
 
 html,body
 {
@@ -87,26 +91,6 @@ a{
 			}
 		}
 	}
-	.box{
-		margin-bottom:20px;
-		h5{
-			font-size:14px;
-			border-bottom:1px solid #f1f1f1;
-			padding-bottom:10px;
-			margin-bottom:10px;
-			position:relative;
-			a{
-				position:absolute;
-				right:0;
-				color:@light-gray;
-			}
-		}
-		ul{
-			li a{
-				line-height:25px;
-			}
-		}
-	}
 }
 [page=detail] {
 	position:relative;
@@ -138,6 +122,28 @@ a{
 		padding-top:10px;
 	}
 }
+
+/*sidebar*/
+	.box{
+		margin-bottom:20px;
+		h5{
+			font-size:14px;
+			border-bottom:1px solid #f1f1f1;
+			padding-bottom:10px;
+			margin-bottom:10px;
+			position:relative;
+			a{
+				position:absolute;
+				right:0;
+				color:@light-gray;
+			}
+		}
+		ul{
+			li a{
+				line-height:25px;
+			}
+		}
+	}
 
 #login{
 	width:450px;
@@ -199,5 +205,25 @@ a{
 		font-size:14px;
 		color:#999;
 		}
+	}
+}
+
+/* comments, comment-publish */
+#comments, #comment-publish{
+	margin-top:30px;
+	h2{font-size:16px; padding-bottom:10px; margin-bottom:20px; border-bottom:1px solid #f5f5f5;}
+}
+#comments{
+	.comment{
+		padding:10px 0;
+		border-bottom:1px solid #f5f5f5;
+		min-height:50px;
+		h5{
+			font-weight:600;
+			margin-bottom:10px;
+			color:#000;
+		}
+		.comment-content{text-indent:2em; color:#666;}
+		.comment-info{color:#999; text-align:right; font-size:12px;}
 	}
 }
