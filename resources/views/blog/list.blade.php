@@ -10,7 +10,6 @@
 				<?php echo $list->render();?>
 			</div>
 			<div class="col-lg-4 col-md-4">
-				@include('side_right')
 			</div>
 		</div>
 	</div>

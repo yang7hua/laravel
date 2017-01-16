@@ -1,6 +1,6 @@
-				@foreach ($newlist as $row)
+				@foreach ($list as $row)
 				<div class="list">
-					<a class="title" href="{{$row->url}}">{{$row->title}}</a>
+					<a class="title" title="{{$row->title}}" href="{{$row->url}}">{{$row->title}}</a>
 					<div class="summary">
 					{{$row->summary}}
 					</div>
@@ -9,7 +9,7 @@
 						<a href="{{$row->curl}}">{{$row->cname}}</a>
 					@endif
 					@if ($row->fid)
-						<a href="/f/{{$row->fid}}">{{$blog_from[$row->fid]->name}}</a>
+						{{$row->fname}}
 					@endif
 					@if ($row->comment_count)
 						&nbsp;&nbsp;<a href="{{$row->url}}#comments">comment ({{$row->comment_count}})</a>

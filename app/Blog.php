@@ -57,17 +57,23 @@ class Blog extends Model
 	{
 		$cids = array();
 		foreach ($blogs as $row) {
+			if (empty($row))
+				continue;
 			if (in_array($row->cid, $cids))
 				continue;
 			$cids[] = $row->cid;
 		}
 		$clist = (new BlogCategory)->whereIn('id', $cids)->get();
-		$cnames = array();
+		$categories = array();
 		foreach ($clist as $row) {
-			$cnames[$row->id] = $row['name'];
+			$categories[$row->id] = $row;
 		}
 
+		$from = BlogFrom::map();
+
 		foreach ($blogs as &$blog) {
+			if (empty($blog))
+				continue;
 			//博文详情链接
 			$blog->url = self::url($blog);
 			$blog->content = htmlspecialchars_decode($blog->content);
@@ -78,10 +84,16 @@ class Blog extends Model
 			} else {
 				$blog->cover = '';
 			}
+			if ($blog->fid and isset($from[$blog->fid])) {
+				$blog->fname = $from[$blog->fid]->name;
+			}
 			//分类名称
-			$blog->cname = $cnames[$blog->cid];
-			//分类链接
-			$blog->curl = route('category', ['cid'=>$blog->cid]);
+			if ($blog->cid) {
+				$blog->cname = $categories[$blog->cid]->name;
+				//分类链接
+				$code = $categories[$blog->cid]->code;
+				$blog->curl = route('category', ['code'=>$code]);
+			}
 			$blog->statusname = $blog->status == self::STATUS_OK ? '已发布' : '未发布';
 		}
 		return $blogs;
@@ -114,5 +126,18 @@ class Blog extends Model
 		$ins = self::query()->find($id);
 		$ins->comment_count++;
 		return $ins->save();
+	}
+
+	//
+	static function renderBlogListOfCategories($categories, $take = 10)
+	{
+		foreach ($categories as &$category) {
+			$category['list'] = self::format(self::where('cid', $category->id)
+				->orderBy('id', 'desc')
+				->take($take)
+				->select(array('id', 'cid', 'title'))
+				->get());
+		}
+		return $categories;
 	}
 }

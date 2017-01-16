@@ -27,22 +27,22 @@
 					@lang('label.comefrom')&nbsp;<a target="_blank" href="{{$detail->furl}}">{{$detail->furl}}</a>
 				@endif
 				</div>
-			</div>
 
-			<div class="col-lg-4">
-				@include('side_right2')
-			</div>
-		</div>	
+				@if ($prev)
+				<h5>Prev: <a title="{{$prev->title}}" href="{{$prev->url}}">{{$prev->title}}</a></h5>
+				<br/>
+				@endif
+				@if ($next)
+				<h5>Next: <a title="{{$next->title}}" href="{{$next->url}}">{{$next->title}}</a></h5>
+				<br/>
+				@endif
 
-		<div class="row">
-			<div class="col-lg-8" id="comments">
+			<div id="comments">
 				<h2>@lang('label.comments') ({{$detail->comment_count}})</h2>	
 				@include('comment.tpl.list')
 			</div>
-		</div>
 
-		<div class="row">
-			<div class="col-lg-8" id="comment-publish">
+			<div id="comment-publish">
 				<h2>@lang('label.post comment')</h2>
 
 				<form role="form" class="form-horizontal" name="comment-publish" type="post" action="{{url('comment')}}">
@@ -82,9 +82,15 @@
 						</div>
 					</div>
 				</form>
+			</div>
 
 			</div>
-		</div>
+
+			<div class="col-lg-4">
+				@include('side_right2')
+			</div>
+		</div>	
+
 	</div>
 </div>
 <script type="text/javascript" src="/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>

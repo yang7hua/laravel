@@ -16,16 +16,19 @@ class IndexController extends Controller
      */
     public function index($p = 1)
     {
-		$newlist = \App\Blog::format(\App\Blog::newlist($p, 10));
-		$blog_from = \App\BlogFrom::map();
+		$newlist = \App\Blog::orderBy('id', 'desc')->paginate(config('website.home.size'));
+		$newlist = \App\Blog::format($newlist);
 
 		$newcomments = \App\Comment::orderBy('id', 'desc')
 				->take(10)->get();
 
+		$categories = \App\BlogCategory::where('show_index', 1)->get();
+		$categories = \App\Blog::renderBlogListOfCategories($categories, 5);
+
 		return view('welcome', array(
-			'newlist' => $newlist,
-			'blog_from' => $blog_from,
+			'list' => $newlist,
 			'comments' => \App\Comment::format($newcomments),
+			'categories' => \App\BlogCategory::format($categories)
 		));
     }
 

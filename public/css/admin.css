@@ -14,8 +14,6 @@ a,
 i {
   margin: 0;
   padding: 0;
-  font-size: 12px;
-  font-weight: normal;
 }
 body {
   font-size: 12px;
@@ -207,71 +205,6 @@ textarea[more-heigh=true] {
 .help-block .error {
   color: red;
 }
-[cascaded-data="address"] select {
-  width: 200px;
-  float: left;
-  margin-right: 10px;
-}
-[cascaded-data="car"] .car_brand,
-[cascaded-data="car"] .car_type {
-  float: left;
-  position: relative;
-  overflow: visible;
-  margin-right: 20px;
-}
-[cascaded-data="car"] .car_brand ul,
-[cascaded-data="car"] .car_type ul {
-  position: absolute;
-  left: 0;
-  top: 33px;
-  width: 700px;
-  background: #fff;
-  z-index: 999;
-  padding: 10px;
-  border: 1px solid #f1f1f1;
-  display: none;
-}
-[cascaded-data="car"] [name="car_brand"],
-[cascaded-data="car"] [name="car_type"] {
-  width: 150px;
-  cursor: pointer;
-}
-[cascaded-data="car"] .opened ul {
-  display: block;
-}
-[cascaded-data="car"] .car_type ul {
-  width: 500px;
-}
-[cascaded-data="car"] .car_type ul li {
-  display: inline-block;
-  margin-right: 15px;
-  margin-bottom: 5px;
-  padding: 2px 5px;
-}
-[cascaded-data="car"] .car-brand-alpha,
-[cascaded-data="car"] .car-brand-name {
-  display: inline-block;
-}
-[cascaded-data="car"] .car-brand-alpha {
-  width: 30px;
-  float: left;
-  padding: 2px 5px;
-  color: blue;
-}
-[cascaded-data="car"] .car-brand-name {
-  width: 90%;
-}
-[cascaded-data="car"] .car-brand-name span {
-  display: inline-block;
-  padding: 2px 10px;
-  margin-bottom: 5px;
-  cursor: pointer;
-}
-[cascaded-data="car"] .car_type ul li:hover,
-[cascaded-data="car"] .car-brand-name span:hover {
-  cursor: pointer;
-  background: #f1f1f1;
-}
 .pagination > .active > a,
 .pagination > .active > span,
 .pagination > .active > a:hover,
@@ -438,6 +371,9 @@ blockquote quote {
   text-indent: 0;
   color: #333;
   margin-bottom: 5px;
+}
+.mt20 {
+  margin-top: 20px;
 }
 .btn[type="submit"],
 .btn[type="cancel"],

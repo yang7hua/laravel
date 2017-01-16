@@ -14,9 +14,11 @@
 //home
 Route::group(['namespace'=>'Home', 'middleware'=>'home'], function(){
 	Route::get('/', ['as'=>'home', 'uses'=>'IndexController@index']);
-	Route::get('/p{p}', ['uses'=>'IndexController@index'])->where('p', '\d+');
-	Route::get('/{id}', ['as'=>'detail', 'uses'=>'BlogController@detail'])->where('id', '\d+');
-	Route::get('/c/{cid}', ['as'=>'category', 'uses'=>'BlogController@listbycategory'])->where('cid', '\d+');
+
+	Route::get('/page-{p}', ['uses'=>'IndexController@index'])->where('p', '\d+');
+	Route::get('/article/{id}', ['as'=>'detail', 'uses'=>'BlogController@detail'])->where('id', '\d+');
+	Route::get('/category/{code}', ['as'=>'category', 'uses'=>'BlogController@listbycategory'])->where('code', '\w+');
+
 	Route::match(['get', 'post'], '/login', ['as'=>'login', 'uses'=>'UserController@login']);
 	Route::match(['get', 'post'], '/reg', ['as'=>'reg', 'uses'=>'UserController@reg']);
 	Route::get('/logout', ['as'=>'logout', 'uses'=>'UserController@logout']);

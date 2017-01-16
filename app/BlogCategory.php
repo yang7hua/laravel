@@ -32,4 +32,14 @@ class BlogCategory extends Model
 		return $tree;
 	}
 
+	static function format($list)
+	{
+		if (empty($list))
+			return $list;
+		foreach ($list as &$row) {
+			$row->url = route('category', ['code'=>$row->code]);
+		}
+		return $list;
+	}
+
 }

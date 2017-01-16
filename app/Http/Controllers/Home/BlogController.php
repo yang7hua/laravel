@@ -23,12 +23,53 @@ class BlogController extends Controller
 			//相关评论 
 			'comments' => \App\Comment::findByBid($id),
 			//同分类下的博文
-			'similar' => \App\Blog::format($similar)
+			'similar' => \App\Blog::format($similar),
+
+			'prev' => \App\Blog::formatOne($this->prev($detail)),
+			'next' => \App\Blog::formatOne($this->next($detail)),
 		));
 	}
 
-	public function listbycategory($cid)
+	public function listbycategory($code)
 	{
+		if (preg_match('/^\d+$/', $code)) {
+			$category = \App\BlogCategory::where('id', $code)->first();
+		} else {
+			$category = \App\BlogCategory::where('code', $code)->first();
+		}
+		if (empty($category))
+			return redirect(route('home'));
 
+		$cid = $category->id;
+	
+		$list = \App\Blog::where('cid', $cid)->orderBy('id', 'desc')->paginate(config('website.category.size'));
+		$list = \App\Blog::format($list);
+
+		$categories = \App\BlogCategory::get();
+
+		return view('category.index', array(
+			'detail' => $category,
+			'list' => $list,
+			'categories' => \App\BlogCategory::format($categories)
+		));
 	}
+
+	public function prev($blog)
+	{
+		return \App\Blog::where('id', '<', $blog->id)
+			->where('cid', $blog->cid)
+			->select(array('id','title'))
+			->orderBy('id', 'desc')
+			->first();
+	}
+
+	public function next($blog)
+	{
+		return \App\Blog::where('id', '>', $blog->id)
+			->where('cid', $blog->cid)
+			->select(array('id','title'))
+			->orderBy('id', 'asc')
+			->first();
+	}
+
 }

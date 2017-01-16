@@ -1,5 +1,5 @@
 <div id="footer">
-	<p>{{config('site.copyright')}}</p>
+	<p>{{config('website.copyright')}}</p>
 </div>
 <script type="text/javascript" src="/js/lib/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
