@@ -178,6 +178,7 @@ var func = {
 };
 
 $(function(){
+	//$('.collapse').collapse();
 
 	$("[type=checkbox]").on("click", function(){
 		if ($(this).attr("checked"))

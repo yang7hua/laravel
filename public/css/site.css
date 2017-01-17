@@ -401,17 +401,13 @@ a {
 }
 /*for header*/
 .header {
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
   width: 100%;
+  background: #311B92;
+  font-size: 14px;
 }
 .header .top {
-  background: #311B92;
-  height: 40px;
+  min-height: 40px;
   line-height: 40px;
-  font-size: 14px;
 }
 .header .top ul {
   height: 40px;
@@ -420,13 +416,33 @@ a {
 .header .top ul li a {
   color: #ddd;
   font-size: 14px;
+  padding: 0 15px;
+  line-height: 40px;
 }
 .header .top ul li a:hover,
 .header .top ul li a.current {
   color: #f1f1f1;
 }
-.header .top ul.right {
-  float: right;
+.header .top ul li:hover {
+  background: none;
+}
+.header .top ul li:hover a {
+  background: none;
+}
+.header .top .navbar-nav {
+  margin: 0 -15px;
+}
+.header .navbar-toggle {
+  padding: 0;
+  margin-top: 12px;
+  margin-right: 0;
+  padding-left: 10px;
+}
+.header #navbar a {
+  padding: 0;
+}
+.header .navbar-toggle .icon-bar {
+  background: #fff;
 }
 #footer {
   margin-top: 100px;

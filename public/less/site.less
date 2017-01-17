@@ -30,16 +30,12 @@ a{
 
 /*for header*/
 .header{
-	position:fixed;
-	z-index:999;
-	top:0;
-	left:0;
 	width:100%;
+	background:@color-main;
+	font-size:14px;
 	.top{
-		background:@color-main;
-		height:@header-height;
+		min-height:@header-height;
 		line-height:@header-height;
-		font-size:14px;
 		ul{
 			height:40px;
 			display:inline-block;
@@ -47,16 +43,25 @@ a{
 				a{
 					color:#ddd;
 					font-size:14px;
+					padding:0 15px;
+					line-height:@header-height;
 				}
 				a:hover,a.current{
 					color:#f1f1f1;
 				}
 			}
+			li:hover{
+				background:none;
+				a{
+					background:none;
+				}
+			}
 		}
-		ul.right{
-			float:right;
-		}
+		.navbar-nav{margin:0 -15px;}
 	}
+	.navbar-toggle{padding:0; margin-top:12px; margin-right:0; padding-left:10px;}
+	#navbar a{padding:0;}
+	.navbar-toggle .icon-bar{background:#fff;}
 }
 
 #footer{
