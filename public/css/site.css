@@ -454,7 +454,7 @@ a {
   text-align: center;
 }
 [page=welcome] {
-  margin-top: 90px;
+  margin-top: 60px;
   min-height: 500px;
 }
 [page=welcome] h1 {
@@ -490,7 +490,7 @@ a {
   border-bottom: none;
 }
 [page=detail] {
-  margin-top: 90px;
+  margin-top: 60px;
   min-height: 500px;
 }
 [page=detail] h1 {
