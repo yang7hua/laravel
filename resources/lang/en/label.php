@@ -17,4 +17,11 @@ return [
 	'your email tip' => 'You will receive a email when somebody else reply your comment.',
 	'post your comment' => 'Post Your Comment',
 
+	'your account' => 'Your Account',
+	'your password' => 'Your Password',
+	'captcha' => 'Captcha',
+
+	'login' => 'SIGN IN',
+	'signup' => 'SIGN UP',
+	'loginin title' => 'SIGN IN IWEFOX',
 ];

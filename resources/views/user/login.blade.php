@@ -1,52 +1,68 @@
 @extends('layout.main')
-@section('title', 'login')
+@section('title', 'SIGN IN')
 
 @section('content')
-<img class="bg" src="/images/site/bg-login.jpg">
-<div id="login">
-<form action="{{url('login')}}" method="post" init=0 method="post" AUTOCOMPLETE="OFF">
+<!--<img class="bg" src="/images/site/bg-login.jpg">-->
+<div class="container">
+<div class="col-lg-3"></div>
+<div class="col-lg-6" id="login">
+<form action="{{url('login')}}" method="post" class="form-horizontal" role="form" init=0 name="login" AUTOCOMPLETE="OFF">
 {{csrf_field()}}
 <div class="panel panel-default">
-	<div class="panel-heading">登录到 iwebfox</div>
+	<div class="panel-heading">@lang('label.loginin title')</div>
 	<div class="panel-body">
+	<br/>
 	<div class="form-group">
-		<input type="text" name="account" class="input {required:true}" placeholder="账号" value="{{@$_REQUEST['account']}}">
+		<label class="col-lg-3 control-label">@lang('label.your account')</label>
+		<div class="col-lg-8">
+		<input type="text" class="form-control" name="account" class="input {required:true}" placeholder="" value="{{@$_REQUEST['account']}}">
+		</div>
 	</div>
+	<br/>
 	<div class="form-group">
-		<input type="password" name="password" class="input {required:true}" placeholder="密码">
+		<label class="col-lg-3 control-label">@lang('label.your password')</label>
+		<div class="col-lg-8">
+		<input type="password" class="form-control" name="password" class="input {required:true}" placeholder="">
+		</div>
 	</div>
+	<br/>
 	<div class="form-group">
-		<input type="text" name="captcha" class="input {required:true}" placeholder="验证码">
-		<img src="{{url('/image/captcha')}}" class="captcha">
+		<label class="col-lg-3 control-label">@lang('label.captcha')</label>
+		<div class="col-lg-5">
+			<input type="text" name="captcha" class="form-control {required:true}" placeholder="">
+		</div>
+		<div class="col-lg-3">
+		<img src="{{url('/image/captcha')}}" class="captcha">	
+		</div>
 	</div>
+	<br/>
 @if (isset($result))
 @if ($result['status'] < 1)
-	<div class="form-group msg-block-error">
+	<div class="msg-block-error">
 @foreach ($result['errors'] as $error)
 	<p>* {{$error}}</p>
 @endforeach
 	</div>
 @endif
 @endif
-	<button type="submit" submit-type="ajax" class="btn btn-primary">登录</button>
-	<div class="form-group oinfo">
-		<a href="{{url('reg')}}">立即注册</a>
+	<button type="submit" submit="login" submit-ok="login" class="btn btn-primary">@lang('label.login')</button>
+	<div class="oinfo">
+		<a href="{{url('reg')}}">@lang('label.signup')</a>
 	</div>
 	</div>
 </div>
 </form>
 </div>
+</div>
 <style>
-body{
-	padding-top:170px;
-	overflow:hidden;
-}
+.header{position:fixed; z-index:999;}
 img.bg{
-	filter:blur(3px);
-	-webkit-filter:blur(10px);
+	/*filter:blur(3px);
+	-webkit-filter:blur(10px);*/
 	position:absolute;
 	bottom:0;
 	z-index:-1;
 }
+#footer{position:fixed; bottom:0; width:100%;}
 </style>
 @endsection
