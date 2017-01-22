@@ -151,7 +151,7 @@ var submit = {
 	},
 
 	//after login successed
-	login: functions(data) {
+	login: function(data) {
 		if (data.url)
 			location.href = data.url;
 	}
