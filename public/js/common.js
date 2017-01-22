@@ -148,6 +148,12 @@ var submit = {
 	comment_append: function(data) {
 		$("#comments").append(data);
 		$("#comment-publish [name=pid]").val(0);
+	},
+
+	//after login successed
+	login: functions(data) {
+		if (data.url)
+			location.href = data.url;
 	}
 };
 

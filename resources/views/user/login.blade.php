@@ -15,21 +15,21 @@
 	<div class="form-group">
 		<label class="col-lg-3 control-label">@lang('label.your account')</label>
 		<div class="col-lg-8">
-		<input type="text" class="form-control" name="account" class="input {required:true}" placeholder="" value="{{@$_REQUEST['account']}}">
+		<input type="text" data-toggle="tooltip" data-placement="bottom" title="" class="form-control" name="account" placeholder="">
 		</div>
 	</div>
 	<br/>
 	<div class="form-group">
 		<label class="col-lg-3 control-label">@lang('label.your password')</label>
 		<div class="col-lg-8">
-		<input type="password" class="form-control" name="password" class="input {required:true}" placeholder="">
+		<input type="password" class="form-control" name="password" data-toggle="tooltip" data-placement="bottom" title="" placeholder="">
 		</div>
 	</div>
 	<br/>
 	<div class="form-group">
 		<label class="col-lg-3 control-label">@lang('label.captcha')</label>
 		<div class="col-lg-5">
-			<input type="text" name="captcha" class="form-control {required:true}" placeholder="">
+			<input type="text" name="captcha" class="form-control" data-toggle="tooltip" data-placement="bottom">
 		</div>
 		<div class="col-lg-3">
 		<img src="{{url('/image/captcha')}}" class="captcha">	

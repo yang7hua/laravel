@@ -27,24 +27,14 @@ class UserController extends Controller
 			];
 			$validator = Validator::make(Input::all(), $rules, $messages);
 			if ($validator->fails()) {
-				$result = array(
-					'status' => 0,
-					'errors' => $validator->errors()->all()
-				);
+				return $this->error(null, $validator->errors());
 			} else {
 				$info = DB::table('user')->where('username', $request->input('account'))->first();
 				if (empty($info) or $info->password != $this->mkpwd($request->input('password'))) {
-					$result = array(
-						'status' => 0,
-						'errors' => array('账号不存在或密码错误'),
-					);
+					return $this->error(null, array('account'=>'账号不存在或密码错误'));
 				} else {
 					session('user', $info);
-					$result = array(
-						'status' => 1,
-						'info' => '登录成功'
-					);
-					return redirect('/');
+					return $this->success('登录成功', array('url'=>route('home')));
 				}
 			}
 
