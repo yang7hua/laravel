@@ -23,5 +23,5 @@ return [
 
 	'login' => 'SIGN IN',
 	'signup' => 'SIGN UP',
-	'loginin title' => 'SIGN IN IWEFOX',
+	'loginin title' => 'SIGN IN IWEBFOX',
 ];

@@ -117,7 +117,7 @@ class Blog extends Model
 	{
 		if (!empty($blog->summary))
 			return $blog->summary;
-		return mb_substr(strip_tags($blog->content), 0, 100, 'utf-8');
+		return mb_substr(strip_tags($blog->content), 0, 200, 'utf-8');
 	}
 
 	//评论数修改
