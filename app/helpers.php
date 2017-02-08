@@ -4,8 +4,12 @@ namespace Helper;
  * composer.json autoload.files
  * composer dump-autoload
  * 通用方法
- * blade中可以直接用 {{\Func\func()}} 调用
+ * blade中可以直接用 {{\Helper\func()}} 调用
  */
+function formatTime($time)
+{
+	return date('M j, Y, g:i a', $time);
+}
 
 class Ueditor
 {

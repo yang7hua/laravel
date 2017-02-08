@@ -14,7 +14,7 @@
 					@if ($row->comment_count)
 						&nbsp;&nbsp;<a href="{{$row->url}}#comments">comment ({{$row->comment_count}})</a>
 					@endif
-						&nbsp;&nbsp;<span>{{date('n/j H:i', $row->posttime)}}</span>
+						&nbsp;&nbsp;<span>{{\Helper\formatTime($row->posttime)}}</span>
 					</p>
 				</div>
 				@endforeach

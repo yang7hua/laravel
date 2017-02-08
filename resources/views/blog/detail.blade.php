@@ -15,7 +15,7 @@
 				@if ($detail->from)
 				来自&nbsp;<a href="{{$detail->from->domain}}" target="_blank">{{$detail->from->name}}</a>
 				@endif
-				&nbsp;&nbsp;{{date('n/j H:i', $detail->posttime)}}
+				&nbsp;&nbsp;{{\Helper\formatTime($detail->posttime)}}
 				</div>
 				<div class="blog-content">
 				@if ($detail->cover)
@@ -23,7 +23,7 @@
 				{!!$detail->content!!}
 				</div>
 				<div class="blog-moreinfo">
-				@if ($detail->furl)
+				@if (false)
 					@lang('label.comefrom')&nbsp;<a target="_blank" href="{{$detail->furl}}">{{$detail->furl}}</a>
 				@endif
 				</div>
