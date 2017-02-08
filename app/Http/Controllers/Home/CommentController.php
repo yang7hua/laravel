@@ -88,7 +88,9 @@ class CommentController extends Controller
 			$Comment->pid = $request->input('pid');
 		$Comment->uname = $request->input('name');
 		$Comment->email = $request->input('email');
-		$Comment->content = strip_tags($request->input('content'), '<blockquote><quote>');
+		$content = strip_tags($request->input('content'), '<blockquote><quote>');
+		$content = str_replace("\r\n", '<br/>', $content);
+		$Comment->content = $content;
 		$Comment->ip = ip2long($request->getClientIp());
 		$Comment->approve = 0;
 
